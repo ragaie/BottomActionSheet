@@ -8,10 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,PickerListDelegate{
 
+    @IBOutlet weak var selectGender: UIButton!
+    
+    
+    @IBOutlet weak var pickerMenu: PickerList!
+    
+    var item = ["male","female"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickerMenu.delegate = self
+        
+        
+        pickerMenu.dataSourceItem = item
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,5 +33,22 @@ class ViewController: UIViewController {
     }
 
 
+    
+    @IBAction func showPicker(_ sender: Any) {
+        
+        pickerMenu.show()
+    }
+    
+    
+    func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int) {
+        
+       
+        
+        selectGender.setTitle("\(item[row])", for: .normal)
+        
+        
+        
+    }
+    
 }
 

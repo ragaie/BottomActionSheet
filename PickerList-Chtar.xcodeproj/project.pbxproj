@@ -12,6 +12,13 @@
 		811777FC1F1F7EBC001FA155 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811777FA1F1F7EBC001FA155 /* Main.storyboard */; };
 		811777FE1F1F7EBC001FA155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 811777FD1F1F7EBC001FA155 /* Assets.xcassets */; };
 		811778011F1F7EBC001FA155 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 811777FF1F1F7EBC001FA155 /* LaunchScreen.storyboard */; };
+		8117780B1F1F7EDD001FA155 /* PickerList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 811778091F1F7EDD001FA155 /* PickerList.xib */; };
+		8117780C1F1F7EDD001FA155 /* PickerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8117780A1F1F7EDD001FA155 /* PickerList.swift */; };
+		811778121F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.55.07 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 8117780E1F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.55.07 PM.png */; };
+		811778131F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.59.53 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 8117780F1F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.59.53 PM.png */; };
+		811778141F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778101F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png */; };
+		811778151F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778111F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png */; };
+		811778171F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		811777FD1F1F7EBC001FA155 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		811778001F1F7EBC001FA155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		811778021F1F7EBC001FA155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		811778091F1F7EDD001FA155 /* PickerList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerList.xib; sourceTree = "<group>"; };
+		8117780A1F1F7EDD001FA155 /* PickerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerList.swift; sourceTree = "<group>"; };
+		8117780E1F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.55.07 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.55.07 PM.png"; sourceTree = "<group>"; };
+		8117780F1F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.59.53 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.59.53 PM.png"; sourceTree = "<group>"; };
+		811778101F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.53.46 PM.png"; sourceTree = "<group>"; };
+		811778111F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.54.39 PM.png"; sourceTree = "<group>"; };
+		811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +52,8 @@
 		811777EA1F1F7EBB001FA155 = {
 			isa = PBXGroup;
 			children = (
+				8117780D1F1F81D9001FA155 /* screen shot */,
+				811778081F1F7EC3001FA155 /* pickerList-comm */,
 				811777F51F1F7EBC001FA155 /* PickerList-Chtar */,
 				811777F41F1F7EBC001FA155 /* Products */,
 			);
@@ -62,6 +78,27 @@
 				811778021F1F7EBC001FA155 /* Info.plist */,
 			);
 			path = "PickerList-Chtar";
+			sourceTree = "<group>";
+		};
+		811778081F1F7EC3001FA155 /* pickerList-comm */ = {
+			isa = PBXGroup;
+			children = (
+				811778091F1F7EDD001FA155 /* PickerList.xib */,
+				8117780A1F1F7EDD001FA155 /* PickerList.swift */,
+			);
+			name = "pickerList-comm";
+			sourceTree = "<group>";
+		};
+		8117780D1F1F81D9001FA155 /* screen shot */ = {
+			isa = PBXGroup;
+			children = (
+				8117780E1F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.55.07 PM.png */,
+				8117780F1F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.59.53 PM.png */,
+				811778101F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png */,
+				811778111F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png */,
+				811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */,
+			);
+			name = "screen shot";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +162,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				811778011F1F7EBC001FA155 /* LaunchScreen.storyboard in Resources */,
+				811778141F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png in Resources */,
+				811778151F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png in Resources */,
+				8117780B1F1F7EDD001FA155 /* PickerList.xib in Resources */,
 				811777FE1F1F7EBC001FA155 /* Assets.xcassets in Resources */,
 				811777FC1F1F7EBC001FA155 /* Main.storyboard in Resources */,
+				811778171F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png in Resources */,
+				811778121F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.55.07 PM.png in Resources */,
+				811778131F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.59.53 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8117780C1F1F7EDD001FA155 /* PickerList.swift in Sources */,
 				811777F91F1F7EBC001FA155 /* ViewController.swift in Sources */,
 				811777F71F1F7EBC001FA155 /* AppDelegate.swift in Sources */,
 			);
