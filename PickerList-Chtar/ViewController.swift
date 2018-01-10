@@ -13,17 +13,13 @@ class ViewController: UIViewController ,SheetPickerDelegate{
     @IBOutlet weak var selectGender: UIButton!
     
     
-    @IBOutlet weak var pickerMenu: PickerList!
     
     var item = ["male","female"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         
-        pickerMenu.delegate = self
-        
-        
-        pickerMenu.dataSourceItem = item
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -38,14 +34,14 @@ class ViewController: UIViewController ,SheetPickerDelegate{
         
         //pickerMenu.show()
         
-        
-        SheetPicker.init(dataSource: ["sdfds","sdfsd","aewe"], onCompletion: { (index) in
+        //["sdfds","sdfsd","aewe"]
+        SheetPicker.init(dataSource: [1,2,3,4,5,6,7], onCompletion: { (index) in
             print(index)
             
         }) {
             
             print("selection canceled")
-        }.show()
+        }//.show()
         
         
    

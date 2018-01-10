@@ -50,7 +50,8 @@ protocol SheetPickerDelegate {
     var delegate : SheetPickerDelegate!
     
      var ID : String! = "pickerlist"
-  
+    
+    var plurView : UIVisualEffectView!
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
@@ -125,12 +126,15 @@ protocol SheetPickerDelegate {
         // nib.contentView.frame = bounds
         addSubview(view)
         
-   
-        // custom initialization logic
-        
+        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        plurView.backgroundColor = UIColor.lightGray
+        plurView.alpha = 0.5
+      
+ 
+    
     }
     
-    
+ 
     
 //    
     // add action of dropDown
@@ -146,10 +150,18 @@ protocol SheetPickerDelegate {
         
         
         DoneButton.addTarget(self, action: "selectItem:", for: .touchUpInside)
+        
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
+        singleTap.numberOfTapsRequired = 1
+        plurView.addGestureRecognizer(singleTap)
+        
     }
     
     
-    
+    @objc func clickheader(_ sender : UITapGestureRecognizer){
+        
+        dismissView(DismissButton)
+    }
 //    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -177,11 +189,11 @@ protocol SheetPickerDelegate {
     func show() {
        
         if showFlage == false {
-          //  UIApplication.shared.keyWindow?.addSubview(notifyView)
-            
-           // self.owningViewController()?.view.addSubview(self)
-//            var frameTemp = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
-                UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
+
+            UIApplication.shared.keyWindow?.addSubview(plurView)
+
+            UIApplication.shared.keyWindow?.addSubview(self)
+                UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
                     var basketTopFrame = self.frame
             
                     basketTopFrame.origin.y -= 200
@@ -198,18 +210,28 @@ protocol SheetPickerDelegate {
     }
     
     
+    
+    
+    
+    
+    
     func dismissView(_ sender: UIButton) -> Void {
     
-        UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
             var basketTopFrame = self.frame
             
             basketTopFrame.origin.y += 200
             
             
             self.frame = basketTopFrame
+            
+            
         }, completion: { finished in
             print("Ragaie doors closed!")
             
+            
+            self.plurView.removeFromSuperview()
+            self.self.removeFromSuperview()
             if self.cancelBlock != nil {
                 self.cancelBlock()
             }
@@ -233,19 +255,9 @@ protocol SheetPickerDelegate {
 
             
         }
-       // print("\(dataSourceItem[selectItem]))")
-        UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
-            var basketTopFrame = self.frame
-            
-            basketTopFrame.origin.y += 200
-            
-            
-            self.frame = basketTopFrame
-        }, completion: { finished in
-            print("Ragaie doors opened!")
-        })
-       showFlage =  false
         
+        dismissView(DismissButton)
+
     }
 
     
@@ -275,14 +287,14 @@ class SheetPicker: NSObject{
         
         //actionPicker.show()
     }
-    init(dataSource : [String], onCompletion: @escaping ((_ index:Int) -> Void), onCancel: @escaping (()->Void )) {
+    init(dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void), onCancel: @escaping (()->Void )) {
         
         actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
         
         actionPicker.doneBlock = onCompletion
         actionPicker.cancelBlock = onCancel
-        
+        actionPicker.show()
         //actionPicker.show()
     }
   
@@ -292,8 +304,17 @@ class SheetPicker: NSObject{
         
         if showFlage == false {
            //
-            UIApplication.shared.keyWindow?.addSubview(actionPicker)
             
+            var plurView : UIVisualEffectView! = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+            plurView.backgroundColor = UIColor.lightGray
+            plurView.alpha = 0.5
+            
+           // plurView.addSubview(actionPicker)
+            
+            
+            UIApplication.shared.keyWindow?.addSubview(plurView)
+            UIApplication.shared.keyWindow?.addSubview(actionPicker)
+
           actionPicker.owningViewController()?.view.addSubview(actionPicker)
             //            var frameTemp = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
             UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
