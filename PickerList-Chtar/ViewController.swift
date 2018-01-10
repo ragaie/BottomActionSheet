@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController ,PickerListDelegate{
+class ViewController: UIViewController ,SheetPickerDelegate{
 
     @IBOutlet weak var selectGender: UIButton!
     
@@ -36,7 +36,20 @@ class ViewController: UIViewController ,PickerListDelegate{
     
     @IBAction func showPicker(_ sender: Any) {
         
-        pickerMenu.show()
+        //pickerMenu.show()
+        
+        
+        SheetPicker.init(dataSource: ["sdfds","sdfsd","aewe"], onCompletion: { (index) in
+            print(index)
+            
+        }) {
+            
+            print("selection canceled")
+        }.show()
+        
+        
+   
+        
     }
     
     

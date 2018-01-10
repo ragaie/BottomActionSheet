@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 // viewcontroller that contain this view
 extension UIResponder {
     func owningViewController() -> UIViewController? {
@@ -22,7 +21,7 @@ extension UIResponder {
     }
 }
 
-protocol PickerListDelegate {
+protocol SheetPickerDelegate {
     
     
     func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int)
@@ -35,7 +34,7 @@ protocol PickerListDelegate {
 @IBDesignable class PickerList: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
 
     
-    @IBOutlet weak var DismissButton: UIButton!
+    @IBOutlet  weak var DismissButton: UIButton!
     
     @IBOutlet weak var DoneButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
@@ -44,16 +43,20 @@ protocol PickerListDelegate {
  
     
     var selectItem : Int! = 0
-   private  var showFlage :Bool! = false
+    private  var showFlage :Bool! = false
+    var doneBlock : ((_ index:Int) -> Void)!
+    var cancelBlock : (()->Void)!
     var dataSourceItem : [Any]! = []/// ["ghjghjghjhj","etertret","fsfsfs"]
-    var delegate : PickerListDelegate!
+    var delegate : SheetPickerDelegate!
     
      var ID : String! = "pickerlist"
   
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
-      initSubviews()
+        initSubviews()
+        initActionAndDelegete()
+
     }
     
   
@@ -122,6 +125,7 @@ protocol PickerListDelegate {
         // nib.contentView.frame = bounds
         addSubview(view)
         
+   
         // custom initialization logic
         
     }
@@ -173,7 +177,9 @@ protocol PickerListDelegate {
     func show() {
        
         if showFlage == false {
-        
+          //  UIApplication.shared.keyWindow?.addSubview(notifyView)
+            
+           // self.owningViewController()?.view.addSubview(self)
 //            var frameTemp = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
                 UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
                     var basketTopFrame = self.frame
@@ -202,7 +208,11 @@ protocol PickerListDelegate {
             
             self.frame = basketTopFrame
         }, completion: { finished in
-            print("Ragaie doors opened!")
+            print("Ragaie doors closed!")
+            
+            if self.cancelBlock != nil {
+                self.cancelBlock()
+            }
         })
         showFlage = false
         
@@ -214,6 +224,14 @@ protocol PickerListDelegate {
         if delegate != nil {
         
             delegate.pickerList(self, didSelectRowAt: selectItem)
+            
+        }
+        
+        if (doneBlock != nil){
+            
+            doneBlock(selectItem)
+
+            
         }
        // print("\(dataSourceItem[selectItem]))")
         UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
@@ -232,7 +250,68 @@ protocol PickerListDelegate {
 
     
     
+    
  
+}
+
+
+
+
+class SheetPicker: NSObject{
+    
+    private var actionPicker : PickerList!
+    
+    private  var showFlage :Bool! = false
+
+    override init() {
+        super.init()
+    }
+    
+    init(delegate: SheetPickerDelegate,dataSource : [String]) {
+        
+          actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
+        actionPicker.dataSourceItem = dataSource
+        actionPicker.delegate = delegate
+        
+        //actionPicker.show()
+    }
+    init(dataSource : [String], onCompletion: @escaping ((_ index:Int) -> Void), onCancel: @escaping (()->Void )) {
+        
+        actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
+        actionPicker.dataSourceItem = dataSource
+        
+        actionPicker.doneBlock = onCompletion
+        actionPicker.cancelBlock = onCancel
+        
+        //actionPicker.show()
+    }
+  
+    
+    /// show view
+    func show() {
+        
+        if showFlage == false {
+           //
+            UIApplication.shared.keyWindow?.addSubview(actionPicker)
+            
+          actionPicker.owningViewController()?.view.addSubview(actionPicker)
+            //            var frameTemp = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
+            UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
+                var basketTopFrame = self.actionPicker.frame
+                
+                basketTopFrame.origin.y -= 200
+                
+                
+                self.actionPicker.frame = basketTopFrame
+            }, completion: { finished in
+                print("Ragaie doors opened!")
+            })
+            
+            showFlage = true
+        }
+        
+    }
+    
 }
 
 
