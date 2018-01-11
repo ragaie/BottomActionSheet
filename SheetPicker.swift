@@ -20,14 +20,7 @@ public class SheetPicker: NSObject{
      
     }
     
-    init(delegate: SheetPickerDelegate,dataSource : [String]) {
-        
-        actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
-        actionPicker.dataSourceItem = dataSource
-        actionPicker.delegate = delegate
-        actionPicker.show()
-    }
-    
+ 
     
     
 
@@ -60,9 +53,16 @@ public class SheetPicker: NSObject{
     }
     
     
+    init(sheetPickerWithdelegate doneText : String , delegate: SheetPickerDelegate,dataSource : [String]) {
+        
+        actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
+        actionPicker.dataSourceItem = dataSource
+        actionPicker.delegate = delegate
+        actionPicker.show()
+    }
     
     
-    init(dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void), onCancel: @escaping (()->Void )) {
+    init(sheetPickerWithdblock doneText : String ,dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void), onCancel: @escaping (()->Void )) {
         
         actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
@@ -73,11 +73,6 @@ public class SheetPicker: NSObject{
         //actionPicker.show()
     }
     
-    
-    func rotated(){
-        
-        print("device rotated")
-        
-    }
+  
     
 }
