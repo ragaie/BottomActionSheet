@@ -18,7 +18,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="f9a-8s-Fyh">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="141"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-Qq-jxz">
@@ -43,7 +43,7 @@
                     </state>
                 </button>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9aG-9u-fsZ">
-                    <rect key="frame" x="0.0" y="39" width="300" height="102"/>
+                    <rect key="frame" x="0.0" y="39" width="300" height="161"/>
                     <date key="date" timeIntervalSinceReferenceDate="526905496.56035101">
                         <!--2017-09-12 10:38:16 +0000-->
                     </date>

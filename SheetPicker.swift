@@ -16,6 +16,8 @@ public class SheetPicker: NSObject{
     
     override init() {
         super.init()
+        
+     
     }
     
     init(delegate: SheetPickerDelegate,dataSource : [String]) {
@@ -23,17 +25,42 @@ public class SheetPicker: NSObject{
         actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
         actionPicker.delegate = delegate
-        
         actionPicker.show()
     }
     
     
-    init(title : String) {
-        
-       var  datePicker =   DatePicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
-       
+    
+
+    
+    init(datePickerWithBlock doneText : String,mode : UIDatePickerMode ,local : Locale, onCompletion: @escaping((_ date:Date) -> Void), onCancel: @escaping (()->Void )) {
+        var  datePicker =   DatePicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
+        datePicker.doneBlock = onCompletion
+        datePicker.cancelBlock = onCancel
+        datePicker.pickerLocale = local
+        datePicker.pickerMode = mode
+        datePicker.buttonTitle = doneText
+
         datePicker.show()
+       
     }
+    
+    
+    init(datePickerWithDelegate doneText : String,mode : UIDatePickerMode ,local : Locale,delegate : SheetPickerDateDelegate) {
+        super.init()
+        var  datePicker =   DatePicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
+        datePicker.delegate = delegate
+        datePicker.pickerLocale = local
+        datePicker.pickerMode = mode
+        datePicker.buttonTitle = doneText
+        datePicker.show()
+        
+       // NotificationCenter.default.addObserver(self, selector: #selector(SheetPicker.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: "rotated", name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
+    }
+    
+    
+    
     
     init(dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void), onCancel: @escaping (()->Void )) {
         
@@ -47,6 +74,10 @@ public class SheetPicker: NSObject{
     }
     
     
-
+    func rotated(){
+        
+        print("device rotated")
+        
+    }
     
 }

@@ -22,6 +22,7 @@
 		81CE8C21200759F4009DA082 /* SheetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C20200759F4009DA082 /* SheetPicker.swift */; };
 		81CE8C2620077B43009DA082 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C2520076EC4009DA082 /* DatePicker.swift */; };
 		81CE8C2720077B4D009DA082 /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CE8C2420076EC4009DA082 /* DatePicker.xib */; };
+		81CE8C2920078FC1009DA082 /* enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C2820078FC1009DA082 /* enumeration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		81CE8C20200759F4009DA082 /* SheetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPicker.swift; sourceTree = "<group>"; };
 		81CE8C2420076EC4009DA082 /* DatePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePicker.xib; sourceTree = "<group>"; };
 		81CE8C2520076EC4009DA082 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		81CE8C2820078FC1009DA082 /* enumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumeration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				81CE8C2320076E9E009DA082 /* datePicker */,
 				81CE8C2220075A06009DA082 /* first picker for any type  */,
 				81CE8C20200759F4009DA082 /* SheetPicker.swift */,
+				81CE8C2820078FC1009DA082 /* enumeration.swift */,
 			);
 			name = "pickerList-comm";
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				8117780C1F1F7EDD001FA155 /* PickerList.swift in Sources */,
 				811777F91F1F7EBC001FA155 /* ViewController.swift in Sources */,
 				811777F71F1F7EBC001FA155 /* AppDelegate.swift in Sources */,
+				81CE8C2920078FC1009DA082 /* enumeration.swift in Sources */,
 				81CE8C21200759F4009DA082 /* SheetPicker.swift in Sources */,
 				81CE8C2620077B43009DA082 /* DatePicker.swift in Sources */,
 			);

@@ -142,9 +142,12 @@ extension UIResponder {
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
+        NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.dismissView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
     }
 
+
+    
 /////// pickerDataSource and delegate
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         

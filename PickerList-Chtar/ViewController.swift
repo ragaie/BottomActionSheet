@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController ,SheetPickerDelegate{
+class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDelegate{
+   
+    
 
     @IBOutlet weak var selectGender: UIButton!
     
@@ -44,13 +46,21 @@ class ViewController: UIViewController ,SheetPickerDelegate{
 //        }
         
         
-        SheetPicker.init(title: "hello")
-      //  SheetPicker.init(delegate: self, dataSource: item)
-   
+        
+//// --------------> >>>> date picker
+//        SheetPicker.init(datePickerWithBlock : "ok" ,mode: .time, local: Locale.init(identifier: "en"), onCompletion: { (date) in
+//            print(date)
+//        }) {
+//            print("cancel view ")
+//        }
+        
+        SheetPicker.init(datePickerWithDelegate: "ok", mode: .time, local: Locale.init(identifier: "ar"), delegate: self)
         
     }
     
-    
+    func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date) {
+        print(date)
+    }
     func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int) {
         
        
