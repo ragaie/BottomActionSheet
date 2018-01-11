@@ -7,56 +7,37 @@
 //
 
 import UIKit
-// viewcontroller that contain this view
-extension UIResponder {
-    func owningViewController() -> UIViewController? {
-        var nextResponser = self
-        while let next = nextResponser.next {
-            nextResponser = next
-            if let vc = nextResponser as? UIViewController {
-                return vc
-            }
-        }
-        return nil
-    }
-}
 
-@objc public protocol SheetPickerDelegate {
+protocol DatePickerDelegate {
     
     
-     func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int)
+    func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date)
     
-    @objc optional  func pickerListDismissed(_ pickerList: PickerList)
-
     
 }
 
 
 
-@IBDesignable public class PickerList: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
+ class DatePicker: UIView {
 
     
     
     @IBOutlet weak var DoneButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var pickerView: UIPickerView!
-    
- 
+  
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var selectItem : Int! = 0
-    private  var showFlage :Bool! = false
-    var doneBlock : ((_ index:Int) -> Void)!
-    var cancelBlock : (()->Void)!
-    var dataSourceItem : [Any]! = []/// ["ghjghjghjhj","etertret","fsfsfs"]
-    var delegate : SheetPickerDelegate!
+   private  var showFlage :Bool! = false
+    var delegate : DatePickerDelegate!
     
      var ID : String! = "pickerlist"
-    
     var plurView : UIVisualEffectView!
+
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
-        initSubviews()
+      initSubviews()
         initActionAndDelegete()
 
     }
@@ -64,7 +45,7 @@ extension UIResponder {
   
     
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSubviews()
         initActionAndDelegete()
@@ -73,6 +54,19 @@ extension UIResponder {
         // change size and location after init it to not apper in view 
         self.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
     }
+    
+    
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        //setButtons()
+        
+    }
+    
+    
+    
+    
     @IBInspectable var RestorationId : String!{
         didSet {
             
@@ -85,9 +79,7 @@ extension UIResponder {
         didSet {
             DoneButton.layer.cornerRadius = cornerRadius
             DoneButton.clipsToBounds = true
-            
-            
-         
+       
         }
     }
     @IBInspectable var headerColor: UIColor = UIColor.blue {
@@ -110,7 +102,7 @@ extension UIResponder {
         let bundle = Bundle(for: type(of: self))
         
         
-        let nib = UINib(nibName: "PickerList", bundle: bundle)
+        let nib = UINib(nibName: "DatePicker", bundle: bundle)
         
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
@@ -122,60 +114,46 @@ extension UIResponder {
         // to fit like you want in storyboard
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         // nib.contentView.frame = bounds
-        addSubview(view)
         
+        addSubview(view)
         plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         plurView.backgroundColor = UIColor.lightGray
         plurView.alpha = 0.5
-      
- 
-    
+        
+        // custom initialization logic
+        
     }
     
- 
     
-// add action of of all View
+    
+//    
+    // add action of dropDown
     func initActionAndDelegete()  {
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        
+        
+       
+        //.addTarget(self, action:Selector("dismissView:") , for: .touchUpInside)
+        
+        
         DoneButton.addTarget(self, action: "selectItem:", for: .touchUpInside)
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
         
     }
+    
 
-/////// pickerDataSource and delegate
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
-        return 1
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        return dataSourceItem.count
-    }
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return  "\(dataSourceItem[row])"
-        
-        
-    }
-    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        selectItem = row
-    }
-    
     
     
     /// show view
     func show() {
        
         if showFlage == false {
-
+ 
             UIApplication.shared.keyWindow?.addSubview(plurView)
-
+            
             UIApplication.shared.keyWindow?.addSubview(self)
-                UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
                     var basketTopFrame = self.frame
             
                     basketTopFrame.origin.y -= 200
@@ -192,67 +170,44 @@ extension UIResponder {
     }
     
     
-    
-    
-
-    
-    
-/// dismiss view from screen
     func dismissView() {
-    
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+       UIView.animate(withDuration: 0.3, delay:0, options: .curveEaseOut, animations: {
             var basketTopFrame = self.frame
             basketTopFrame.origin.y += 200
             self.frame = basketTopFrame
         }, completion: { finished in
-           // remove plurView and pickerVieew from Screen
             self.plurView.removeFromSuperview()
             self.self.removeFromSuperview()
-           
-            if self.delegate != nil {
-    
-                if self.delegate.pickerListDismissed != nil {
-                    
-                    self.delegate.pickerListDismissed!(self)
-                }
-                
-                
-            }
-            if self.cancelBlock != nil {
-                self.cancelBlock()
-            }
+            print("view removed !")
         })
         showFlage = false
         
+    }
+    
+    func selectItem(_ sender: UIButton) -> Void {
+        
+        
+        if delegate != nil {
+        
+           // delegate.pickerList(self, didSelectRowAt: selectItem)
+            
+            delegate.DatePicker(self, didSelectDate: datePicker.date)
+        }
+        
+        dismissView()
+       showFlage =  false
         
     }
-//Handle tap in view
+
+    //Handle tap in view
     @objc func clickheader(_ sender : AnyObject)  {
         
         dismissView()
         
     }
-/// that call when done method selected
-  @objc  func selectItem(_ sender: UIButton) -> Void {
-        if delegate != nil {
-            delegate.pickerList(self, didSelectRowAt: selectItem)
-        }
-        
-        if (doneBlock != nil){
-            doneBlock(selectItem)
-        }
-       // dismiss view
-        dismissView()
-    }
-
-    
-    
     
  
 }
-
-
-
 
 
 

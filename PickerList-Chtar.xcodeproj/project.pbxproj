@@ -19,6 +19,9 @@
 		811778141F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778101F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png */; };
 		811778151F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778111F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png */; };
 		811778171F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */; };
+		81CE8C21200759F4009DA082 /* SheetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C20200759F4009DA082 /* SheetPicker.swift */; };
+		81CE8C2620077B43009DA082 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C2520076EC4009DA082 /* DatePicker.swift */; };
+		81CE8C2720077B4D009DA082 /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CE8C2420076EC4009DA082 /* DatePicker.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		811778101F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.53.46 PM.png"; sourceTree = "<group>"; };
 		811778111F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.54.39 PM.png"; sourceTree = "<group>"; };
 		811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png"; sourceTree = "<group>"; };
+		81CE8C20200759F4009DA082 /* SheetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPicker.swift; sourceTree = "<group>"; };
+		81CE8C2420076EC4009DA082 /* DatePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePicker.xib; sourceTree = "<group>"; };
+		81CE8C2520076EC4009DA082 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +89,9 @@
 		811778081F1F7EC3001FA155 /* pickerList-comm */ = {
 			isa = PBXGroup;
 			children = (
-				811778091F1F7EDD001FA155 /* PickerList.xib */,
-				8117780A1F1F7EDD001FA155 /* PickerList.swift */,
+				81CE8C2320076E9E009DA082 /* datePicker */,
+				81CE8C2220075A06009DA082 /* first picker for any type  */,
+				81CE8C20200759F4009DA082 /* SheetPicker.swift */,
 			);
 			name = "pickerList-comm";
 			sourceTree = "<group>";
@@ -99,6 +106,24 @@
 				811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */,
 			);
 			name = "screen shot";
+			sourceTree = "<group>";
+		};
+		81CE8C2220075A06009DA082 /* first picker for any type  */ = {
+			isa = PBXGroup;
+			children = (
+				811778091F1F7EDD001FA155 /* PickerList.xib */,
+				8117780A1F1F7EDD001FA155 /* PickerList.swift */,
+			);
+			name = "first picker for any type ";
+			sourceTree = "<group>";
+		};
+		81CE8C2320076E9E009DA082 /* datePicker */ = {
+			isa = PBXGroup;
+			children = (
+				81CE8C2520076EC4009DA082 /* DatePicker.swift */,
+				81CE8C2420076EC4009DA082 /* DatePicker.xib */,
+			);
+			name = datePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +189,7 @@
 				811778011F1F7EBC001FA155 /* LaunchScreen.storyboard in Resources */,
 				811778141F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png in Resources */,
 				811778151F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png in Resources */,
+				81CE8C2720077B4D009DA082 /* DatePicker.xib in Resources */,
 				8117780B1F1F7EDD001FA155 /* PickerList.xib in Resources */,
 				811777FE1F1F7EBC001FA155 /* Assets.xcassets in Resources */,
 				811777FC1F1F7EBC001FA155 /* Main.storyboard in Resources */,
@@ -183,6 +209,8 @@
 				8117780C1F1F7EDD001FA155 /* PickerList.swift in Sources */,
 				811777F91F1F7EBC001FA155 /* ViewController.swift in Sources */,
 				811777F71F1F7EBC001FA155 /* AppDelegate.swift in Sources */,
+				81CE8C21200759F4009DA082 /* SheetPicker.swift in Sources */,
+				81CE8C2620077B43009DA082 /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +374,7 @@
 				811778071F1F7EBC001FA155 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -35,15 +35,17 @@ class ViewController: UIViewController ,SheetPickerDelegate{
         //pickerMenu.show()
         
         //["sdfds","sdfsd","aewe"]
-        SheetPicker.init(dataSource: [1,2,3,4,5,6,7], onCompletion: { (index) in
-            print(index)
-            
-        }) {
-            
-            print("selection canceled")
-        }//.show()
+//        SheetPicker.init(dataSource: [1,2,3,4,5,6,7], onCompletion: { (index) in
+//            print(index)
+//            
+//        }) {
+//            
+//            print("selection canceled")
+//        }
         
         
+        SheetPicker.init(title: "hello")
+      //  SheetPicker.init(delegate: self, dataSource: item)
    
         
     }
@@ -52,12 +54,17 @@ class ViewController: UIViewController ,SheetPickerDelegate{
     func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int) {
         
        
-        
+        print(row)
         selectGender.setTitle("\(item[row])", for: .normal)
-        
-        
-        
+   
     }
     
+    
+    
+    
+//    func pickerListDismissed(_ pickerList: PickerList) {
+//        
+//        print("view did dismiss")
+//    }
 }
 
