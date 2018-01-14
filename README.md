@@ -1,7 +1,7 @@
 # Sheet Bottom Picker
 Picker form bottom you can find datePicker or any item picker, or you can add view what you want like table view or collectioncView
 ## how can use it 
-### 1- date picker
+## 1- date picker
 ```
         SheetPicker.init(datePickerWithBlock : "Done" ,mode: .dateAndTime, local: Locale.init(identifier: "en"), onCompletion: { (date) in
                     print(date)
@@ -10,7 +10,7 @@ Picker form bottom you can find datePicker or any item picker, or you can add vi
         SheetPicker.init(datePickerWithDelegate: "ok", mode: .time, local: Locale.init(identifier: "ar"), delegate: self)
         
 ```
-### 2- normal picker with any data Type
+## 2- normal picker with any data Type
 ```
      SheetPicker.init(sheetPickerWithdblock: "Done", dataSource: [1,2,3]) { (index) in
 
@@ -22,7 +22,7 @@ Picker form bottom you can find datePicker or any item picker, or you can add vi
          SheetPicker.init(sheetPickerWithdelegate: "Done", delegate: <#T##SheetPickerDelegate#>, dataSource: ["male","female"])
   
   ```
-  ### 2- for use any custome view inside it 
+  ## 2- for use any custome view inside it 
    ```
    
      let bundle = Bundle(for: type(of: self))
@@ -39,7 +39,7 @@ Picker form bottom you can find datePicker or any item picker, or you can add vi
        var  customePicker =  SheetPicker.init(CustomePickerWithdblock: "hhh", customView: view,height : 300)
         
         customePicker.show()
-    ```
+  ```
   
 ## you should get like this result 
 
