@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PickerList Ragaie-->
+        <!--Bottom Picker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PickerList_Chtar" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,46 +22,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdr-D7-EoF">
-                                <rect key="frame" x="80" y="147" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94893664119999999" green="0.94907277820000002" blue="0.94890671969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Select Date"/>
-                                <connections>
-                                    <action selector="showDatePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhy-Ma-eT8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSm-xH-DmZ">
-                                <rect key="frame" x="80" y="103" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSm-xH-DmZ">
+                                <rect key="frame" x="87.5" y="103" width="200" height="43"/>
                                 <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="MRN-jg-RB6"/>
+                                    <constraint firstAttribute="width" secondItem="qSm-xH-DmZ" secondAttribute="height" multiplier="200:43" id="ZjC-2l-351"/>
+                                </constraints>
                                 <state key="normal" title="Select picker"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="showPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="baZ-I8-Tfj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agk-hP-C44">
-                                <rect key="frame" x="80" y="201" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdr-D7-EoF">
+                                <rect key="frame" x="87" y="156" width="200" height="42"/>
+                                <color key="backgroundColor" red="0.94893664119999999" green="0.94907277820000002" blue="0.94890671969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Jk0-8E-2Ki"/>
+                                    <constraint firstAttribute="width" secondItem="Qdr-D7-EoF" secondAttribute="height" multiplier="100:21" id="uG5-vi-EE9"/>
+                                </constraints>
+                                <state key="normal" title="Select Date"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showDatePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhy-Ma-eT8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agk-hP-C44">
+                                <rect key="frame" x="87" y="210" width="200" height="38"/>
                                 <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="agk-hP-C44" secondAttribute="height" multiplier="100:19" id="Dd2-sX-jA2"/>
+                                    <constraint firstAttribute="height" constant="38" id="Zx8-nq-l2O"/>
+                                </constraints>
                                 <state key="normal" title="Select custom Picker"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="showCustomPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dyk-kE-JWd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeU-Iw-bp8">
-                                <rect key="frame" x="80" y="257" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeU-Iw-bp8">
+                                <rect key="frame" x="87" y="256" width="200" height="45"/>
                                 <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LeU-Iw-bp8" secondAttribute="height" multiplier="40:9" id="2tS-2C-Zx1"/>
+                                    <constraint firstAttribute="height" constant="45" id="5Kx-p3-GEz"/>
+                                </constraints>
                                 <state key="normal" title="show CollectionView"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loadCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T5o-DS-Sis"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qSm-xH-DmZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2SO-Dr-Fiu"/>
+                            <constraint firstItem="LeU-Iw-bp8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dpz-mI-o9A"/>
+                            <constraint firstItem="agk-hP-C44" firstAttribute="top" secondItem="Qdr-D7-EoF" secondAttribute="top" constant="54" id="Qqa-uc-6vB"/>
+                            <constraint firstItem="LeU-Iw-bp8" firstAttribute="top" secondItem="agk-hP-C44" secondAttribute="top" constant="46" id="Yte-wx-eaO"/>
+                            <constraint firstItem="qSm-xH-DmZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="39" id="ePd-Ja-uuc"/>
+                            <constraint firstItem="Qdr-D7-EoF" firstAttribute="top" secondItem="qSm-xH-DmZ" secondAttribute="top" constant="53" id="mkF-Ce-Bmb"/>
+                            <constraint firstItem="agk-hP-C44" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4g-cs-HNf"/>
+                            <constraint firstItem="Qdr-D7-EoF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ueU-Qb-pcy"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PickerList Ragaie" id="A76-sY-d7g"/>
+                    <navigationItem key="navigationItem" title="Bottom Picker" id="A76-sY-d7g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

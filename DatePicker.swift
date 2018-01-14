@@ -94,7 +94,6 @@ public class DatePicker: UIView {
         //addSubview(view)
   
         addSubview(view)
-        view.layer.cornerRadius = 12
 
         
         plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))

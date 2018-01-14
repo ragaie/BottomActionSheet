@@ -36,8 +36,8 @@ class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDeleg
         
         //pickerMenu.show()
 ////// piker for normal data
-//
-        SheetPicker.init(sheetPickerWithdblock: "Done", dataSource: [1,2,22,2]) { (index) in
+
+        SheetPicker.init(sheetPickerWithdblock: "Done", dataSource: item) { (index) in
 
             print(index)
         }
@@ -52,7 +52,7 @@ class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDeleg
     @IBAction func showDatePicker(_ sender: Any) {
         
         //// --------------> >>>> date picker
-                SheetPicker.init(datePickerWithBlock : "Done" ,mode: .time, local: Locale.init(identifier: "en"), onCompletion: { (date) in
+                SheetPicker.init(datePickerWithBlock : "Done" ,mode: .dateAndTime, local: Locale.init(identifier: "en"), onCompletion: { (date) in
                     print(date)
                 })
         
