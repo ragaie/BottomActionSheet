@@ -46,6 +46,8 @@ Picker form bottom you can find datePicker or any item picker, or you can add vi
 ![Screenshot](https://github.com/ragaie/pickerList/blob/master/normal%20picker.png)
 ![Screenshot](https://github.com/ragaie/pickerList/blob/master/datePicker.png)
 ![Screenshot](https://github.com/ragaie/pickerList/blob/master/collectionView.png)
+![Screenshot](https://github.com/ragaie/pickerList/blob/master/tableView.png)
+
 ![Screenshot](https://github.com/ragaie/pickerList/blob/master/home.png)
 
 ## Author
