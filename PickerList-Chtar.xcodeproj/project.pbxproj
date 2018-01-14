@@ -19,6 +19,14 @@
 		811778141F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778101F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png */; };
 		811778151F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778111F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png */; };
 		811778171F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */; };
+		81A0B369200B665100A4A65D /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0B368200B665100A4A65D /* CustomPicker.swift */; };
+		81A0B36B200B78C200A4A65D /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A0B36A200B78C200A4A65D /* TableView.xib */; };
+		81A0B36E200B8A5200A4A65D /* TableViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0B36D200B8A5200A4A65D /* TableViewTest.swift */; };
+		81A0B370200B8ED200A4A65D /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A0B36F200B8ED200A4A65D /* TableCell.xib */; };
+		81A0B372200B8F2C00A4A65D /* ViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0B371200B8F2C00A4A65D /* ViewPresenter.swift */; };
+		81A0B375200B944800A4A65D /* CollectionData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A0B374200B944800A4A65D /* CollectionData.xib */; };
+		81A0B377200B949000A4A65D /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A0B376200B949000A4A65D /* CollectionCell.xib */; };
+		81A0B379200B9ADF00A4A65D /* CollectionDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0B378200B9ADF00A4A65D /* CollectionDataTest.swift */; };
 		81CE8C21200759F4009DA082 /* SheetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C20200759F4009DA082 /* SheetPicker.swift */; };
 		81CE8C2620077B43009DA082 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C2520076EC4009DA082 /* DatePicker.swift */; };
 		81CE8C2720077B4D009DA082 /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CE8C2420076EC4009DA082 /* DatePicker.xib */; };
@@ -40,6 +48,14 @@
 		811778101F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.53.46 PM.png"; sourceTree = "<group>"; };
 		811778111F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-07-19 at 1.54.39 PM.png"; sourceTree = "<group>"; };
 		811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png"; sourceTree = "<group>"; };
+		81A0B368200B665100A4A65D /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		81A0B36A200B78C200A4A65D /* TableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableView.xib; sourceTree = "<group>"; };
+		81A0B36D200B8A5200A4A65D /* TableViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTest.swift; sourceTree = "<group>"; };
+		81A0B36F200B8ED200A4A65D /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
+		81A0B371200B8F2C00A4A65D /* ViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresenter.swift; sourceTree = "<group>"; };
+		81A0B374200B944800A4A65D /* CollectionData.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionData.xib; sourceTree = "<group>"; };
+		81A0B376200B949000A4A65D /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		81A0B378200B9ADF00A4A65D /* CollectionDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataTest.swift; sourceTree = "<group>"; };
 		81CE8C20200759F4009DA082 /* SheetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPicker.swift; sourceTree = "<group>"; };
 		81CE8C2420076EC4009DA082 /* DatePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePicker.xib; sourceTree = "<group>"; };
 		81CE8C2520076EC4009DA082 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -78,8 +94,11 @@
 		811777F51F1F7EBC001FA155 /* PickerList-Chtar */ = {
 			isa = PBXGroup;
 			children = (
+				81A0B373200B942100A4A65D /* custom collectionView */,
+				81A0B36C200B8A3000A4A65D /* custom tablePicker  */,
 				811777F61F1F7EBC001FA155 /* AppDelegate.swift */,
 				811777F81F1F7EBC001FA155 /* ViewController.swift */,
+				81A0B371200B8F2C00A4A65D /* ViewPresenter.swift */,
 				811777FA1F1F7EBC001FA155 /* Main.storyboard */,
 				811777FD1F1F7EBC001FA155 /* Assets.xcassets */,
 				811777FF1F1F7EBC001FA155 /* LaunchScreen.storyboard */,
@@ -91,6 +110,7 @@
 		811778081F1F7EC3001FA155 /* pickerList-comm */ = {
 			isa = PBXGroup;
 			children = (
+				81A0B367200B661A00A4A65D /* custom sheet */,
 				81CE8C2320076E9E009DA082 /* datePicker */,
 				81CE8C2220075A06009DA082 /* first picker for any type  */,
 				81CE8C20200759F4009DA082 /* SheetPicker.swift */,
@@ -109,6 +129,34 @@
 				811778161F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png */,
 			);
 			name = "screen shot";
+			sourceTree = "<group>";
+		};
+		81A0B367200B661A00A4A65D /* custom sheet */ = {
+			isa = PBXGroup;
+			children = (
+				81A0B368200B665100A4A65D /* CustomPicker.swift */,
+			);
+			name = "custom sheet";
+			sourceTree = "<group>";
+		};
+		81A0B36C200B8A3000A4A65D /* custom tablePicker  */ = {
+			isa = PBXGroup;
+			children = (
+				81A0B36A200B78C200A4A65D /* TableView.xib */,
+				81A0B36D200B8A5200A4A65D /* TableViewTest.swift */,
+				81A0B36F200B8ED200A4A65D /* TableCell.xib */,
+			);
+			path = "custom tablePicker ";
+			sourceTree = "<group>";
+		};
+		81A0B373200B942100A4A65D /* custom collectionView */ = {
+			isa = PBXGroup;
+			children = (
+				81A0B374200B944800A4A65D /* CollectionData.xib */,
+				81A0B376200B949000A4A65D /* CollectionCell.xib */,
+				81A0B378200B9ADF00A4A65D /* CollectionDataTest.swift */,
+			);
+			path = "custom collectionView";
 			sourceTree = "<group>";
 		};
 		81CE8C2220075A06009DA082 /* first picker for any type  */ = {
@@ -192,12 +240,16 @@
 				811778011F1F7EBC001FA155 /* LaunchScreen.storyboard in Resources */,
 				811778141F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.53.46 PM.png in Resources */,
 				811778151F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.54.39 PM.png in Resources */,
+				81A0B36B200B78C200A4A65D /* TableView.xib in Resources */,
 				81CE8C2720077B4D009DA082 /* DatePicker.xib in Resources */,
+				81A0B377200B949000A4A65D /* CollectionCell.xib in Resources */,
 				8117780B1F1F7EDD001FA155 /* PickerList.xib in Resources */,
 				811777FE1F1F7EBC001FA155 /* Assets.xcassets in Resources */,
 				811777FC1F1F7EBC001FA155 /* Main.storyboard in Resources */,
 				811778171F1F82D4001FA155 /* Simulator Screen Shot Jul 19, 2017, 2.06.30 PM.png in Resources */,
 				811778121F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.55.07 PM.png in Resources */,
+				81A0B375200B944800A4A65D /* CollectionData.xib in Resources */,
+				81A0B370200B8ED200A4A65D /* TableCell.xib in Resources */,
 				811778131F1F81E7001FA155 /* Screen Shot 2017-07-19 at 1.59.53 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,7 +261,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A0B372200B8F2C00A4A65D /* ViewPresenter.swift in Sources */,
+				81A0B379200B9ADF00A4A65D /* CollectionDataTest.swift in Sources */,
 				8117780C1F1F7EDD001FA155 /* PickerList.swift in Sources */,
+				81A0B36E200B8A5200A4A65D /* TableViewTest.swift in Sources */,
+				81A0B369200B665100A4A65D /* CustomPicker.swift in Sources */,
 				811777F91F1F7EBC001FA155 /* ViewController.swift in Sources */,
 				811777F71F1F7EBC001FA155 /* AppDelegate.swift in Sources */,
 				81CE8C2920078FC1009DA082 /* enumeration.swift in Sources */,

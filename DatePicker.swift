@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol DatePickerDelegate {
-    
-    
-    func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date)
-    
-    
-}
+
 @objc public protocol SheetPickerDateDelegate {
     func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date)
 
@@ -35,7 +29,7 @@ public class DatePicker: UIView {
     private  var showFlage :Bool! = false
     var delegate : SheetPickerDateDelegate!
     var doneBlock : ((_ date:Date) -> Void)!
-    var cancelBlock : (()->Void)!
+    //var cancelBlock : (()->Void)!
     var buttonTitle : String! = "Done"
      var ID : String! = "pickerlist"
      var plurView : UIVisualEffectView!
@@ -100,6 +94,7 @@ public class DatePicker: UIView {
         //addSubview(view)
   
         addSubview(view)
+        view.layer.cornerRadius = 12
 
         
         plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
@@ -121,7 +116,9 @@ public class DatePicker: UIView {
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
         
-           NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        
+        //   NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     
     }
 
@@ -130,6 +127,9 @@ public class DatePicker: UIView {
             self.dismissView()
         }
     }
+    
+    
+    
     /// show view
     func show() {
         // set some data for view befor using it
@@ -142,7 +142,7 @@ public class DatePicker: UIView {
        if showFlage == false {
             UIApplication.shared.keyWindow?.addSubview(plurView)
             UIApplication.shared.keyWindow?.addSubview(self)
-                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
                     var basketTopFrame = self.frame
                     basketTopFrame.origin.y -= 200
                     self.frame = basketTopFrame
@@ -156,7 +156,7 @@ public class DatePicker: UIView {
     
     
     func dismissView() {
-       UIView.animate(withDuration: 0.3, delay:0, options: .curveEaseOut, animations: {
+       UIView.animate(withDuration: 0.2, delay:0, options: .curveEaseOut, animations: {
             var basketTopFrame = self.frame
             basketTopFrame.origin.y += 200
             self.frame = basketTopFrame
@@ -164,10 +164,7 @@ public class DatePicker: UIView {
             self.plurView.removeFromSuperview()
             self.self.removeFromSuperview()
             print("view removed !")
-            
-            if self.cancelBlock != nil {
-                self.cancelBlock()
-            }
+
         })
         showFlage = false
     }

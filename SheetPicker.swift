@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 public class SheetPicker: NSObject{
     
-    private var actionPicker : PickerList!
     
     private  var showFlage :Bool! = false
-    
+    var   customPicker :CustomPicker!
     override init() {
         super.init()
         
@@ -25,10 +24,10 @@ public class SheetPicker: NSObject{
     
 
     
-    init(datePickerWithBlock doneText : String,mode : UIDatePickerMode ,local : Locale, onCompletion: @escaping((_ date:Date) -> Void), onCancel: @escaping (()->Void )) {
+    init(datePickerWithBlock doneText : String,mode : UIDatePickerMode ,local : Locale, onCompletion: @escaping((_ date:Date) -> Void)) {
         var  datePicker =   DatePicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         datePicker.doneBlock = onCompletion
-        datePicker.cancelBlock = onCancel
+      //  datePicker.cancelBlock = onCancel
         datePicker.pickerLocale = local
         datePicker.pickerMode = mode
         datePicker.buttonTitle = doneText
@@ -55,24 +54,48 @@ public class SheetPicker: NSObject{
     
     init(sheetPickerWithdelegate doneText : String , delegate: SheetPickerDelegate,dataSource : [String]) {
         
-        actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
+       var actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
         actionPicker.delegate = delegate
+        actionPicker.buttonTitle = doneText
+
         actionPicker.show()
     }
     
     
-    init(sheetPickerWithdblock doneText : String ,dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void), onCancel: @escaping (()->Void )) {
+    init(sheetPickerWithdblock doneText : String ,dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void)) {
         
-        actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
+      var   actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
         
         actionPicker.doneBlock = onCompletion
-        actionPicker.cancelBlock = onCancel
+        actionPicker.buttonTitle = doneText
+
         actionPicker.show()
+    }
+    
+    
+    
+    init(CustomePickerWithdblock doneText : String ,customView : UIView,height : Int) {
+        
+        customPicker  =   CustomPicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height,width: UIScreen.main.bounds.width, height: 200))
+        customPicker.customViewToShow = customView
+        // actionPicker.cancelBlock = onCancel
+        customPicker.sheetHeight = CGFloat.init(height)
+        //customPicker.show()
         //actionPicker.show()
     }
     
-  
+    func show(){
+        
+        customPicker.show()
+        
+        
+    }
+    func dismiss(){
+        
+        customPicker.dismissView()
+        
+    }
     
 }

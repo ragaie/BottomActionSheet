@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AudioToolbox
+
 // viewcontroller that contain this view
 extension UIResponder {
     func owningViewController() -> UIViewController? {
@@ -26,14 +28,13 @@ extension UIResponder {
     
      func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int)
     
-    @objc optional  func pickerListDismissed(_ pickerList: PickerList)
 
     
 }
 
 
 
-@IBDesignable public class PickerList: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
+ public class PickerList: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
 
     
     
@@ -46,10 +47,11 @@ extension UIResponder {
     var selectItem : Int! = 0
     private  var showFlage :Bool! = false
     var doneBlock : ((_ index:Int) -> Void)!
-    var cancelBlock : (()->Void)!
+   // var cancelBlock : (()->Void)!
     var dataSourceItem : [Any]! = []/// ["ghjghjghjhj","etertret","fsfsfs"]
     var delegate : SheetPickerDelegate!
-    
+    var buttonTitle : String! = "Done"
+
      var ID : String! = "pickerlist"
     
     var plurView : UIVisualEffectView!
@@ -142,7 +144,7 @@ extension UIResponder {
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
-        NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.dismissView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+       // NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.dismissView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
     }
 
@@ -166,6 +168,11 @@ extension UIResponder {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         selectItem = row
+        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        selectionFeedbackGenerator.selectionChanged()
+
+//        let lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+//        lightImpactFeedbackGenerator.impactOccurred()
     }
     
     
@@ -174,6 +181,7 @@ extension UIResponder {
     func show() {
        
         if showFlage == false {
+            DoneButton.setTitle(buttonTitle, for: .normal)
 
             UIApplication.shared.keyWindow?.addSubview(plurView)
 
@@ -212,18 +220,18 @@ extension UIResponder {
             self.plurView.removeFromSuperview()
             self.self.removeFromSuperview()
            
-            if self.delegate != nil {
-    
-                if self.delegate.pickerListDismissed != nil {
-                    
-                    self.delegate.pickerListDismissed!(self)
-                }
-                
-                
-            }
-            if self.cancelBlock != nil {
-                self.cancelBlock()
-            }
+//            if self.delegate != nil {
+//
+//                if self.delegate.pickerListDismissed != nil {
+//
+//                    self.delegate.pickerListDismissed!(self)
+//                }
+//
+//
+//            }
+//            if self.cancelBlock != nil {
+//                self.cancelBlock()
+//            }
         })
         showFlage = false
         

@@ -25,30 +25,46 @@
                                 <rect key="frame" x="80" y="147" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94893664119999999" green="0.94907277820000002" blue="0.94890671969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="click to select"/>
+                                <state key="normal" title="Select Date"/>
                                 <connections>
-                                    <action selector="showPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTv-Ke-Wet"/>
+                                    <action selector="showDatePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhy-Ma-eT8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXX-cK-5sV">
-                                <rect key="frame" x="157" y="233" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSm-xH-DmZ">
+                                <rect key="frame" x="80" y="103" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Select picker"/>
                                 <connections>
-                                    <segue destination="Z19-rE-QnW" kind="show" id="jSC-gl-IFv"/>
+                                    <action selector="showPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="baZ-I8-Tfj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agk-hP-C44">
+                                <rect key="frame" x="80" y="201" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Select custom Picker"/>
+                                <connections>
+                                    <action selector="showCustomPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dyk-kE-JWd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeU-Iw-bp8">
+                                <rect key="frame" x="80" y="257" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="show CollectionView"/>
+                                <connections>
+                                    <action selector="loadCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T5o-DS-Sis"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="PickerList Ragaie" id="A76-sY-d7g"/>
-                    <connections>
-                        <outlet property="selectGender" destination="Qdr-D7-EoF" id="4e8-qC-91l"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="124"/>
+            <point key="canvasLocation" x="621.60000000000002" y="123.68815592203899"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KwU-MI-GMg">
