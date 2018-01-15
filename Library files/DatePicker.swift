@@ -146,7 +146,7 @@ public class DatePicker: UIView {
                     basketTopFrame.origin.y -= 200
                     self.frame = basketTopFrame
                 }, completion: { finished in
-                    print("Ragaie doors opened!")
+                  //  print("Ragaie doors opened!")
                 })
             showFlage = true
             }
@@ -162,7 +162,7 @@ public class DatePicker: UIView {
         }, completion: { finished in
             self.plurView.removeFromSuperview()
             self.self.removeFromSuperview()
-            print("view removed !")
+           // print("view removed !")
 
         })
         showFlage = false
@@ -170,7 +170,7 @@ public class DatePicker: UIView {
     
     
     
-    func selectItem(_ sender: UIButton) -> Void {
+    @objc func selectItem(_ sender: UIButton) -> Void {
         if delegate != nil {
             delegate.DatePicker(self, didSelectDate: datePicker.date)
         }

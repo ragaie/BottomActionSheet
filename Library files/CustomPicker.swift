@@ -116,7 +116,7 @@ class CustomPicker: UIView {
                 
                 self.frame = basketTopFrame
             }, completion: { finished in
-                print("Ragaie doors opened!")
+               // print("Ragaie doors opened!")
             })
             
             showFlage = true

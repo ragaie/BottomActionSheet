@@ -54,6 +54,7 @@
 		81CE8C20200759F4009DA082 /* SheetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPicker.swift; sourceTree = "<group>"; };
 		81CE8C2420076EC4009DA082 /* DatePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePicker.xib; sourceTree = "<group>"; };
 		81CE8C2520076EC4009DA082 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		81F1028A200CBE1400CDE732 /* ChtarBottomSheet.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ChtarBottomSheet.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +71,7 @@
 		811777EA1F1F7EBB001FA155 = {
 			isa = PBXGroup;
 			children = (
+				81F1028A200CBE1400CDE732 /* ChtarBottomSheet.podspec */,
 				81F1026A200CAB4100CDE732 /* Library files */,
 				8117780D1F1F81D9001FA155 /* screen shot */,
 				811778081F1F7EC3001FA155 /* pickerList-comm */,

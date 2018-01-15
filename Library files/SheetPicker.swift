@@ -23,7 +23,7 @@ public class SheetPicker: NSObject{
     
 
     
-    init(datePickerWithBlock doneText : String,mode : UIDatePickerMode ,local : Locale, onCompletion: @escaping((_ date:Date) -> Void)) {
+    public  init(datePickerWithBlock doneText : String,mode : UIDatePickerMode ,local : Locale, onCompletion: @escaping((_ date:Date) -> Void)) {
         let  datePicker =   DatePicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         datePicker.doneBlock = onCompletion
       //  datePicker.cancelBlock = onCancel
@@ -36,7 +36,7 @@ public class SheetPicker: NSObject{
     }
     
     
-    init(datePickerWithDelegate doneText : String,mode : UIDatePickerMode ,local : Locale,delegate : SheetPickerDateDelegate) {
+   public   init(datePickerWithDelegate doneText : String,mode : UIDatePickerMode ,local : Locale,delegate : SheetPickerDateDelegate) {
         super.init()
         let  datePicker =   DatePicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         datePicker.delegate = delegate
@@ -49,7 +49,7 @@ public class SheetPicker: NSObject{
     }
     
     
-    init(sheetPickerWithdelegate doneText : String , delegate: SheetPickerDelegate,dataSource : [String]) {
+   public   init(sheetPickerWithdelegate doneText : String , delegate: SheetPickerDelegate,dataSource : [String]) {
         
        let actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
@@ -60,7 +60,7 @@ public class SheetPicker: NSObject{
     }
     
     
-    init(sheetPickerWithdblock doneText : String ,dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void)) {
+   public init(sheetPickerWithdblock doneText : String ,dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void)) {
         
       let   actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
@@ -73,7 +73,7 @@ public class SheetPicker: NSObject{
     
     
     
-    init(CustomePickerWithdblock doneText : String ,customView : UIView,height : Int) {
+   public   init(CustomePickerWithdblock doneText : String ,customView : UIView,height : Int) {
         
         customPicker  =   CustomPicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height,width: UIScreen.main.bounds.width, height: 200))
         customPicker.customViewToShow = customView
@@ -83,13 +83,13 @@ public class SheetPicker: NSObject{
         //actionPicker.show()
     }
     
-    func show(){
+    public  func show(){
         
         customPicker.show()
         
         
     }
-    func dismiss(){
+    public  func dismiss(){
         
         customPicker.dismissView()
         
