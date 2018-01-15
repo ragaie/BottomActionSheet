@@ -49,7 +49,7 @@ public class SheetPicker: NSObject{
     }
     
     
-   public   init(sheetPickerWithdelegate doneText : String , delegate: SheetPickerDelegate,dataSource : [String]) {
+   public   init(sheetPickerWithdelegate doneText : String , delegate: SheetPickerDelegate,dataSource : [Any]) {
         
        let actionPicker =   PickerList.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200))
         actionPicker.dataSourceItem = dataSource
