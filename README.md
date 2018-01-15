@@ -1,7 +1,6 @@
 # Sheet Bottom Picker
 Picker form bottom you can find datePicker or any item picker, or you can add view what you want like table view or collectioncView
 you can used in both way by delegate or block to listen to result selection. 
-## how can use it 
 
 ## Getting Started
  Add blow for your pod file 
