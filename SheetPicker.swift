@@ -11,7 +11,6 @@ import UIKit
 public class SheetPicker: NSObject{
     
     
-    private  var showFlage :Bool! = false
     var   customPicker :CustomPicker!
     override init() {
         super.init()
