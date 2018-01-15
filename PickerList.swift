@@ -168,8 +168,6 @@ extension UIResponder {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         selectItem = row
-        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
-        selectionFeedbackGenerator.selectionChanged()
 
 //        let lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
 //        lightImpactFeedbackGenerator.impactOccurred()
