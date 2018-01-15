@@ -1,6 +1,24 @@
 # Sheet Bottom Picker
 Picker form bottom you can find datePicker or any item picker, or you can add view what you want like table view or collectioncView
+you can used in both way by delegate or block to listen to result selection. 
 ## how can use it 
+
+## Getting Started
+ Add blow for your pod file 
+   ```
+   pod 'ChtarBottomSheet' 
+   run pod update
+   ```
+### Installing
+
+A step by step series of examples that tell you have to get a development env running
+
+Say what the step will be
+
+```
+import ChtarBottomSheet
+```
+
 ## 1- date picker
 ```
         SheetPicker.init(datePickerWithBlock : "Done" ,mode: .dateAndTime, local: Locale.init(identifier: "en"), onCompletion: { (date) in
