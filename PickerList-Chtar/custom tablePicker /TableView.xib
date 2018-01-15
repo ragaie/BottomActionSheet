@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="hAC-g7-a8I" customClass="TableViewTest" customModule="PickerList_Chtar" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="hAC-g7-a8I" customClass="TableViewTest" customModule="ActionSheetBottom_Chtar" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -23,13 +22,12 @@
             </subviews>
             <color key="backgroundColor" red="0.65828803807472425" green="0.88203036926791989" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="rWq-HK-Oe1" firstAttribute="top" secondItem="Pfx-PP-fZE" secondAttribute="top" constant="-33" id="3Yi-t2-vYX"/>
-                <constraint firstItem="rWq-HK-Oe1" firstAttribute="bottom" secondItem="Pfx-PP-fZE" secondAttribute="bottom" id="Ob5-rG-yi6"/>
-                <constraint firstItem="rWq-HK-Oe1" firstAttribute="trailing" secondItem="Pfx-PP-fZE" secondAttribute="trailing" id="j6n-zp-RG6"/>
-                <constraint firstItem="Pfx-PP-fZE" firstAttribute="leading" secondItem="rWq-HK-Oe1" secondAttribute="leading" id="uLV-JX-jjM"/>
+                <constraint firstAttribute="top" secondItem="Pfx-PP-fZE" secondAttribute="top" constant="-33" id="3Yi-t2-vYX"/>
+                <constraint firstAttribute="bottom" secondItem="Pfx-PP-fZE" secondAttribute="bottom" id="Ob5-rG-yi6"/>
+                <constraint firstAttribute="trailing" secondItem="Pfx-PP-fZE" secondAttribute="trailing" id="j6n-zp-RG6"/>
+                <constraint firstItem="Pfx-PP-fZE" firstAttribute="leading" secondItem="hAC-g7-a8I" secondAttribute="leading" id="uLV-JX-jjM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="rWq-HK-Oe1"/>
             <connections>
                 <outlet property="tableViewData" destination="Pfx-PP-fZE" id="S57-8z-KnI"/>
             </connections>

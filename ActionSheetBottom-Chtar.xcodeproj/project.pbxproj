@@ -70,6 +70,7 @@
 		811777EA1F1F7EBB001FA155 = {
 			isa = PBXGroup;
 			children = (
+				81F1026A200CAB4100CDE732 /* Library files */,
 				8117780D1F1F81D9001FA155 /* screen shot */,
 				811778081F1F7EC3001FA155 /* pickerList-comm */,
 				811777F51F1F7EBC001FA155 /* PickerList-Chtar */,
@@ -107,7 +108,6 @@
 				81A0B367200B661A00A4A65D /* custom sheet */,
 				81CE8C2320076E9E009DA082 /* datePicker */,
 				81CE8C2220075A06009DA082 /* first picker for any type  */,
-				81CE8C20200759F4009DA082 /* SheetPicker.swift */,
 			);
 			name = "pickerList-comm";
 			sourceTree = "<group>";
@@ -128,7 +128,6 @@
 		81A0B367200B661A00A4A65D /* custom sheet */ = {
 			isa = PBXGroup;
 			children = (
-				81A0B368200B665100A4A65D /* CustomPicker.swift */,
 			);
 			name = "custom sheet";
 			sourceTree = "<group>";
@@ -156,8 +155,6 @@
 		81CE8C2220075A06009DA082 /* first picker for any type  */ = {
 			isa = PBXGroup;
 			children = (
-				811778091F1F7EDD001FA155 /* PickerList.xib */,
-				8117780A1F1F7EDD001FA155 /* PickerList.swift */,
 			);
 			name = "first picker for any type ";
 			sourceTree = "<group>";
@@ -165,10 +162,21 @@
 		81CE8C2320076E9E009DA082 /* datePicker */ = {
 			isa = PBXGroup;
 			children = (
-				81CE8C2520076EC4009DA082 /* DatePicker.swift */,
-				81CE8C2420076EC4009DA082 /* DatePicker.xib */,
 			);
 			name = datePicker;
+			sourceTree = "<group>";
+		};
+		81F1026A200CAB4100CDE732 /* Library files */ = {
+			isa = PBXGroup;
+			children = (
+				81A0B368200B665100A4A65D /* CustomPicker.swift */,
+				81CE8C2520076EC4009DA082 /* DatePicker.swift */,
+				81CE8C2420076EC4009DA082 /* DatePicker.xib */,
+				811778091F1F7EDD001FA155 /* PickerList.xib */,
+				8117780A1F1F7EDD001FA155 /* PickerList.swift */,
+				81CE8C20200759F4009DA082 /* SheetPicker.swift */,
+			);
+			path = "Library files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,10 +38,9 @@
             <constraints>
                 <constraint firstItem="BJi-52-BTP" firstAttribute="centerX" secondItem="bfJ-6o-xLR" secondAttribute="centerX" id="0Nz-Bg-F9U"/>
                 <constraint firstItem="BJi-52-BTP" firstAttribute="top" secondItem="bfJ-6o-xLR" secondAttribute="bottom" constant="12" id="7BU-AC-YwQ"/>
-                <constraint firstItem="bfJ-6o-xLR" firstAttribute="centerX" secondItem="VGX-2h-Heu" secondAttribute="centerX" id="DUZ-tw-KRq"/>
-                <constraint firstItem="bfJ-6o-xLR" firstAttribute="top" secondItem="VGX-2h-Heu" secondAttribute="top" constant="9" id="jhE-eZ-Uqg"/>
+                <constraint firstItem="bfJ-6o-xLR" firstAttribute="centerX" secondItem="GQM-8C-yql" secondAttribute="centerX" id="DUZ-tw-KRq"/>
+                <constraint firstItem="bfJ-6o-xLR" firstAttribute="top" secondItem="GQM-8C-yql" secondAttribute="top" constant="9" id="jhE-eZ-Uqg"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="VGX-2h-Heu"/>
             <size key="customSize" width="80" height="94"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

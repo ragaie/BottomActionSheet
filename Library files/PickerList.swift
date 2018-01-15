@@ -140,7 +140,7 @@ extension UIResponder {
     func initActionAndDelegete()  {
         pickerView.delegate = self
         pickerView.dataSource = self
-        DoneButton.addTarget(self, action: "selectItem:", for: .touchUpInside)
+        DoneButton.addTarget(self, action: #selector(PickerList.selectItem(_:)), for: .touchUpInside)
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
