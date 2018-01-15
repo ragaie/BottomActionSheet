@@ -25,6 +25,7 @@
 		81CE8C21200759F4009DA082 /* SheetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C20200759F4009DA082 /* SheetPicker.swift */; };
 		81CE8C2620077B43009DA082 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE8C2520076EC4009DA082 /* DatePicker.swift */; };
 		81CE8C2720077B4D009DA082 /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CE8C2420076EC4009DA082 /* DatePicker.xib */; };
+		81F10293200CC4D500CDE732 /* ChtarBottomSheet.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 81F1028A200CBE1400CDE732 /* ChtarBottomSheet.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,6 +244,7 @@
 			files = (
 				811778011F1F7EBC001FA155 /* LaunchScreen.storyboard in Resources */,
 				81A0B36B200B78C200A4A65D /* TableView.xib in Resources */,
+				81F10293200CC4D500CDE732 /* ChtarBottomSheet.podspec in Resources */,
 				81CE8C2720077B4D009DA082 /* DatePicker.xib in Resources */,
 				81A0B377200B949000A4A65D /* CollectionCell.xib in Resources */,
 				8117780B1F1F7EDD001FA155 /* PickerList.xib in Resources */,
