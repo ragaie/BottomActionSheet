@@ -43,7 +43,7 @@ class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDeleg
         }
   
  
-    
+    SheetPicker.init(sheetPickerWithdelegate: <#T##String#>, delegate: <#T##SheetPickerDelegate#>, dataSource: <#T##[String]#>)
   
         
     }

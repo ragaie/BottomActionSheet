@@ -28,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		811777F31F1F7EBC001FA155 /* PickerList-Chtar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PickerList-Chtar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		811777F31F1F7EBC001FA155 /* ActionSheetBottom-Chtar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ActionSheetBottom-Chtar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		811777F61F1F7EBC001FA155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		811777F81F1F7EBC001FA155 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		811777FB1F1F7EBC001FA155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		811777F41F1F7EBC001FA155 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				811777F31F1F7EBC001FA155 /* PickerList-Chtar.app */,
+				811777F31F1F7EBC001FA155 /* ActionSheetBottom-Chtar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,9 +174,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		811777F21F1F7EBC001FA155 /* PickerList-Chtar */ = {
+		811777F21F1F7EBC001FA155 /* ActionSheetBottom-Chtar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 811778051F1F7EBC001FA155 /* Build configuration list for PBXNativeTarget "PickerList-Chtar" */;
+			buildConfigurationList = 811778051F1F7EBC001FA155 /* Build configuration list for PBXNativeTarget "ActionSheetBottom-Chtar" */;
 			buildPhases = (
 				811777EF1F1F7EBC001FA155 /* Sources */,
 				811777F01F1F7EBC001FA155 /* Frameworks */,
@@ -186,9 +186,9 @@
 			);
 			dependencies = (
 			);
-			name = "PickerList-Chtar";
+			name = "ActionSheetBottom-Chtar";
 			productName = "PickerList-Chtar";
-			productReference = 811777F31F1F7EBC001FA155 /* PickerList-Chtar.app */;
+			productReference = 811777F31F1F7EBC001FA155 /* ActionSheetBottom-Chtar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 811777EE1F1F7EBB001FA155 /* Build configuration list for PBXProject "PickerList-Chtar" */;
+			buildConfigurationList = 811777EE1F1F7EBB001FA155 /* Build configuration list for PBXProject "ActionSheetBottom-Chtar" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -221,7 +221,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				811777F21F1F7EBC001FA155 /* PickerList-Chtar */,
+				811777F21F1F7EBC001FA155 /* ActionSheetBottom-Chtar */,
 			);
 		};
 /* End PBXProject section */
@@ -406,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		811777EE1F1F7EBB001FA155 /* Build configuration list for PBXProject "PickerList-Chtar" */ = {
+		811777EE1F1F7EBB001FA155 /* Build configuration list for PBXProject "ActionSheetBottom-Chtar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				811778031F1F7EBC001FA155 /* Debug */,
@@ -415,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		811778051F1F7EBC001FA155 /* Build configuration list for PBXNativeTarget "PickerList-Chtar" */ = {
+		811778051F1F7EBC001FA155 /* Build configuration list for PBXNativeTarget "ActionSheetBottom-Chtar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				811778061F1F7EBC001FA155 /* Debug */,
