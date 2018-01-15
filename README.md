@@ -2,6 +2,10 @@
 Picker form bottom you can find datePicker or any item picker, or you can add view what you want like table view or collectioncView
 you can used in both way by delegate or block to listen to result selection. 
 
+## You can find it in Appetize
+- [Appetize](https://appetize.io/app/ayn2bek9dk9m4xm4pvdgd96yjw)
+
+
 ##  Installing
  Add blow for your pod file 
    ```
