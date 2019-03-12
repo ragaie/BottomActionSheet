@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioToolbox
+//import AudioToolbox
 
 // viewcontroller that contain this view
 extension UIResponder {
@@ -24,17 +24,15 @@ extension UIResponder {
 }
 
 @objc public protocol SheetPickerDelegate {
-    
-    
      func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int)
     
+    func pickerList(_ pickerList: PickerList, cancelAtRow row: Int)
 
-    
 }
 
 
 
- public class PickerList: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
+ public class PickerList: UIView,UIPickerViewDelegate,UIPickerViewDataSource,Picker {
 
     
     
@@ -43,11 +41,13 @@ extension UIResponder {
     @IBOutlet weak var pickerView: UIPickerView!
     
  
-    
-    var selectItem : Int! = 0
     private  var showFlage :Bool! = false
+    var width :CGFloat? = UIScreen.main.bounds.width
+    private var sheetHeight : CGFloat! = 200
+
+    var selectItem : Int! = 0
     var doneBlock : ((_ index:Int) -> Void)!
-   // var cancelBlock : (()->Void)!
+    var cancelBlock : ((_ index:Int)->Void)?
     var dataSourceItem : [Any]! = []/// ["ghjghjghjhj","etertret","fsfsfs"]
     var delegate : SheetPickerDelegate!
     var buttonTitle : String! = "Done"
@@ -58,9 +58,15 @@ extension UIResponder {
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
+        sheetHeight = frame.size.height
         initSubviews()
         initActionAndDelegete()
 
+    }
+    ///remove any listen for notification
+    deinit {
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
   
@@ -73,7 +79,7 @@ extension UIResponder {
         
         
         // change size and location after init it to not apper in view 
-        self.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
+        self.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: width ?? UIScreen.main.bounds.width, height: 200)
     }
     @IBInspectable var RestorationId : String!{
         didSet {
@@ -122,14 +128,21 @@ extension UIResponder {
         //   view.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
         // Make the view stretch with containing view
         // to fit like you want in storyboard
-        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         // nib.contentView.frame = bounds
         addSubview(view)
         
-        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        plurView.backgroundColor = UIColor.lightGray
-        plurView.alpha = 0.5
-      
+        
+        let blurEffect = UIBlurEffect(style: .dark)
+        // 3
+        plurView = UIVisualEffectView(effect: blurEffect)
+        plurView.frame  =  CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        plurView.alpha = 0.7
+        
+//        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+//        plurView.backgroundColor = UIColor.lightGray
+//        plurView.alpha = 0.5
+//      
  
     
     }
@@ -144,12 +157,21 @@ extension UIResponder {
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
-       // NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.dismissView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+            NotificationCenter.default.addObserver(self, selector: #selector(PickerList.rotated), name:  UIDevice.orientationDidChangeNotification, object: nil)
+   
+}
+
+    ///handle rodation of screen
+@objc func rotated() {
+    if  ( UIDevice.current.orientation.isLandscape) ||  UIDevice.current.orientation.isPortrait  {
+        self.dismissView()
         
     }
-
+}
 
     
+
 /////// pickerDataSource and delegate
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
@@ -165,10 +187,10 @@ extension UIResponder {
         
         
     }
+    
+    
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         selectItem = row
-
 //        let lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
 //        lightImpactFeedbackGenerator.impactOccurred()
     }
@@ -177,19 +199,13 @@ extension UIResponder {
     
     /// show view
     func show() {
-       
         if showFlage == false {
             DoneButton.setTitle(buttonTitle, for: .normal)
-
             UIApplication.shared.keyWindow?.addSubview(plurView)
-
             UIApplication.shared.keyWindow?.addSubview(self)
                 UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
                     var basketTopFrame = self.frame
-            
-                    basketTopFrame.origin.y -= 200
-            
-            
+                    basketTopFrame.origin.y -= self.sheetHeight
                     self.frame = basketTopFrame
                 }, completion: { finished in
                    // print("Ragaie doors opened!")
@@ -208,55 +224,43 @@ extension UIResponder {
     
 /// dismiss view from screen
     func dismissView() {
-    
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
             var basketTopFrame = self.frame
-            basketTopFrame.origin.y += 200
+            basketTopFrame.origin.y += self.sheetHeight
             self.frame = basketTopFrame
         }, completion: { finished in
            // remove plurView and pickerVieew from Screen
             self.plurView.removeFromSuperview()
             self.self.removeFromSuperview()
            
-//            if self.delegate != nil {
-//
-//                if self.delegate.pickerListDismissed != nil {
-//
-//                    self.delegate.pickerListDismissed!(self)
-//                }
-//
-//
-//            }
-//            if self.cancelBlock != nil {
-//                self.cancelBlock()
-//            }
         })
         showFlage = false
-        
-        
     }
+    
+    
 //Handle tap in view
     @objc func clickheader(_ sender : AnyObject)  {
-        
+        if self.delegate != nil {
+            self.delegate.pickerList(self, cancelAtRow: self.selectItem)
+        }
+        if let cancelBlock = self.cancelBlock  {
+            cancelBlock(self.selectItem)
+        }
         dismissView()
-        
     }
+    
+    
 /// that call when done method selected
   @objc  func selectItem(_ sender: UIButton) -> Void {
         if delegate != nil {
             delegate.pickerList(self, didSelectRowAt: selectItem)
         }
-        
         if (doneBlock != nil){
             doneBlock(selectItem)
         }
        // dismiss view
         dismissView()
     }
-
-    
-    
-    
  
 }
 

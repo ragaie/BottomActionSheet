@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDelegate{
+class ViewController: UIViewController {
+   
+    
    
     
 
   
-    var item = ["male","female"]
+    var item = ["male","female","male","female","male","female","male","female"]
     var myPresenter : ViewPresenter!
     
     var customePicker : SheetPicker!
@@ -34,38 +36,44 @@ class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDeleg
     
     @IBAction func showPicker(_ sender: Any) {
         
-        //pickerMenu.show()
+
 ////// piker for normal data
 
         SheetPicker.init(sheetPickerWithdblock: "Done", dataSource: item) { (index) in
 
             print(index)
-        }
-  
- 
-//    SheetPicker.init(sheetPickerWithdelegate: <#T##String#>, delegate: <#T##SheetPickerDelegate#>, dataSource: <#T##[String]#>)
-//
-//
+        }.show()
+
+        
+
     }
     
     
     @IBAction func showDatePicker(_ sender: Any) {
         
-        //// --------------> >>>> date picker
-                SheetPicker.init(datePickerWithBlock : "Done" ,mode: .dateAndTime, local: Locale.init(identifier: "en"), onCompletion: { (date) in
-                    print(date)
-                })
         
-        //        SheetPicker.init(datePickerWithDelegate: "ok", mode: .time, local: Locale.init(identifier: "ar"), delegate: self)
-        //
+        
+        SheetPicker.init(datePickerWithBlock: "Done", mode: .dateAndTime, local: .init(identifier: "en")) { (date) in
+            
+        }.show()
+        
+        //// --------------> >>>> date picker
+//        SheetPicker.init(datePickerWithBlock : "Done" ,mode: .date, local: Locale.init(identifier: "en"), onCompletion: { (date) in
+//                            print(date)
+//                        }).show()
+//
+//        SheetPicker.init(datePickerWithBlock: "date", mode: .date, local: .init(identifier: "en"), onCompletion: { (date) in
+//            
+//        }, onCancel: nil)
+//        
+     //   SheetPicker.init(datePickerWithDelegate: "ok", mode: .time, local: Locale.init(identifier: "ar"), delegate: self)
+        
         
         
     }
     
     
     @IBAction func showCustomPicker(_ sender: Any) {
-     
-        
         /// load custom view and add it to view movement 
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "TableView", bundle: bundle)
@@ -78,10 +86,21 @@ class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDeleg
          view.tableViewData.dataSource = myPresenter
          view.layer.cornerRadius = 12
         // custome piker
-        customePicker =  SheetPicker.init(CustomePickerWithdblock: "hhh", customView: view,height : 300)
-        
+        customePicker =  SheetPicker.init(CustomePickerWithView : view, height: 300, width: UIScreen.main.bounds.width - 60)
+
         customePicker.show()
+
+//        SheetPicker.init(CustomePickerWithView: view, height: 200  , width: 400, didShow: {
+//            print("heelo ")
+//        }) {
+//            
+//            
+//            print("hide")
+//            }.show()
+
     }
+    
+    
     
     
     
@@ -100,8 +119,7 @@ class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDeleg
         view.collectionDataPlay.dataSource = myPresenter
         view.layer.cornerRadius = 12
         // custome piker
-        customePicker =  SheetPicker.init(CustomePickerWithdblock: "hhh", customView: view,height : 300)
-        
+        customePicker =  SheetPicker.init(CustomePickerWithView: view, height: 300, width: 400)
         customePicker.show()
         
         
@@ -114,19 +132,42 @@ class ViewController: UIViewController ,SheetPickerDelegate,SheetPickerDateDeleg
     
     
     
-    func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date) {
-        print(date)
-    }
+  
+
+
+}
+
+extension ViewController :SheetPickerDelegate{
+    
     
     
     func pickerList(_ pickerList: PickerList, didSelectRowAt row: Int) {
         
-       
+        
         print(row)
-       // selectGender.setTitle("\(item[row])", for: .normal)
-   
+        // selectGender.setTitle("\(item[row])", for: .normal)
+        
     }
     
-
+    func pickerList(_ pickerList: PickerList, cancelAtRow row: Int) {
+        
+        print("fffff")
+    }
+    
 }
 
+
+extension ViewController : SheetPickerDateDelegate{
+    func DatePicker(_ datepicker: DatePicker, cancelAtDate date: Date) {
+        print("Hello at date :- ",date)
+    }
+    
+    func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date) {
+        print(date)
+    }
+    
+   
+    
+    
+    
+}

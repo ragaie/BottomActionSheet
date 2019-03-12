@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickerList" customModule="PickerList_Chtar" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickerList" customModule="ActionSheetBottom_Chtar" customModuleProvider="target">
             <connections>
                 <outlet property="DoneButton" destination="9Ny-l4-WIw" id="A8X-m5-EaW"/>
                 <outlet property="headerLabel" destination="8BW-Qq-jxz" id="dBU-U6-xAI"/>
@@ -23,17 +22,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-Qq-jxz">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="39"/>
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
                     <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="0.3595622859589041" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="39" id="31e-qa-ouZ"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ny-l4-WIw">
-                    <rect key="frame" x="236" y="6" width="56" height="25"/>
+                    <rect key="frame" x="244" y="1.5" width="56" height="25"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="7n8-U2-9Qe"/>
@@ -45,26 +41,22 @@
                     </state>
                 </button>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-kj-8CE">
-                    <rect key="frame" x="0.0" y="38" width="300" height="103"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="103" id="e21-v2-N9M"/>
-                    </constraints>
+                    <rect key="frame" x="0.0" y="29.5" width="300" height="111.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pickerView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-9" id="23Z-vp-SkS"/>
                 <constraint firstItem="8BW-Qq-jxz" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" id="903-nE-gxe"/>
-                <constraint firstItem="pvd-kj-8CE" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="bottom" constant="-1" id="9AO-tR-JdT"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" constant="236" id="AJr-IY-Lct"/>
                 <constraint firstAttribute="bottom" secondItem="pvd-kj-8CE" secondAttribute="bottom" id="BTN-Eg-K0a"/>
                 <constraint firstAttribute="trailing" secondItem="pvd-kj-8CE" secondAttribute="trailing" id="FWH-9j-tRy"/>
-                <constraint firstItem="pvd-kj-8CE" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="top" constant="38" id="Llx-S0-JjH"/>
+                <constraint firstItem="pvd-kj-8CE" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="bottom" constant="1.5" id="K6t-CN-Wsa"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="top" constant="10" id="S0m-23-afz"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerX" secondItem="f9a-8s-Fyh" secondAttribute="centerX" multiplier="1.75" id="TeP-Gy-Z2G"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" constant="6" id="XRK-Xn-cLN"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-8" id="clD-WT-0gu"/>
+                <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerY" secondItem="8BW-Qq-jxz" secondAttribute="centerY" id="U3a-Sn-jnI"/>
+                <constraint firstItem="9Ny-l4-WIw" firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" id="eYv-zv-7sE"/>
                 <constraint firstItem="pvd-kj-8CE" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" id="gdH-PX-Tu7"/>
                 <constraint firstItem="8BW-Qq-jxz" firstAttribute="centerX" secondItem="f9a-8s-Fyh" secondAttribute="centerX" id="ghx-xl-the"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="leading" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-64" id="gyp-w0-eEc"/>
@@ -73,6 +65,7 @@
                 <constraint firstItem="8BW-Qq-jxz" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" id="mIZ-IG-4AV"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerX" secondItem="8BW-Qq-jxz" secondAttribute="centerX" multiplier="1.75" id="pRD-qr-vx5"/>
                 <constraint firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" id="saV-aV-YCn"/>
+                <constraint firstItem="8BW-Qq-jxz" firstAttribute="height" secondItem="f9a-8s-Fyh" secondAttribute="height" multiplier="0.2" id="tf4-Yx-CZC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
@@ -88,7 +81,7 @@
                     <exclude reference="pRD-qr-vx5"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-376" y="-148.5"/>
+            <point key="canvasLocation" x="-376" y="-148.87556221889056"/>
         </view>
     </objects>
 </document>

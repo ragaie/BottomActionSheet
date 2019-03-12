@@ -11,12 +11,15 @@ import UIKit
 
 @objc public protocol SheetPickerDateDelegate {
     func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date)
+    func DatePicker(_ datepicker: DatePicker, cancelAtDate date: Date)
 
    
 }
 
 
-public class DatePicker: UIView {
+public class DatePicker: UIView ,Picker{
+   
+    
 
     
     
@@ -27,24 +30,32 @@ public class DatePicker: UIView {
     
     var selectItem : Int! = 0
     private  var showFlage :Bool! = false
+    private var sheetHeight : CGFloat! = 200
+    
     var delegate : SheetPickerDateDelegate!
     var doneBlock : ((_ date:Date) -> Void)!
-    //var cancelBlock : (()->Void)!
+    var cancelBlock : ((_ date:Date)->Void)?
     var buttonTitle : String! = "Done"
      var ID : String! = "pickerlist"
      var plurView : UIVisualEffectView!
 
     var pickerLocale : Locale! = Locale.init(identifier: "en")
-    var pickerMode : UIDatePickerMode! = .dateAndTime
+    var pickerMode : UIDatePicker.Mode! = .dateAndTime
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
+        sheetHeight = frame.size.height
         initSubviews()
         initActionAndDelegete()
 
+
     }
-    
-  
+
+    deinit {
+
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     
     required public init?(coder aDecoder: NSCoder) {
@@ -90,15 +101,30 @@ public class DatePicker: UIView {
         view.frame = self.bounds
         // Make the view stretch with containing view
         // to fit like you want in storyboard
-        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         //addSubview(view)
   
         addSubview(view)
-
+     
+//                let path = UIBezierPath(roundedRect:self.frame,
+//                                        byRoundingCorners:[.topRight, .topLeft],
+//                                        cornerRadii: CGSize(width: 10, height:  10))
+//                let maskLayer = CAShapeLayer()
+//                maskLayer.path = path.cgPath
+//
+//        self.layer.mask = maskLayer
+   
         
-        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        plurView.backgroundColor = UIColor.lightGray
-        plurView.alpha = 0.5
+        // 2
+        let blurEffect = UIBlurEffect(style: .dark)
+        // 3
+        plurView = UIVisualEffectView(effect: blurEffect)
+        plurView.frame  =  CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        plurView.alpha = 0.7
+
+//        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+//        plurView.backgroundColor = UIColor.lightGray
+//        plurView.alpha = 0.7
         
       
     }
@@ -117,33 +143,38 @@ public class DatePicker: UIView {
         
         
         
-        //   NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.rotated), name:  UIDevice.orientationDidChangeNotification, object: nil)
     
     }
 
-    func rotated() {
+    @objc func rotated() {
         if  ( UIDevice.current.orientation.isLandscape) ||  UIDevice.current.orientation.isPortrait  {
             self.dismissView()
+            
         }
     }
     
     
+ 
     
+    
+
     /// show view
     func show() {
         // set some data for view befor using it
         datePicker.locale = pickerLocale
         datePicker.datePickerMode = pickerMode
         DoneButton.setTitle(buttonTitle, for: .normal)
-        
-        
-        
+
+
        if showFlage == false {
+
             UIApplication.shared.keyWindow?.addSubview(plurView)
             UIApplication.shared.keyWindow?.addSubview(self)
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
                     var basketTopFrame = self.frame
-                    basketTopFrame.origin.y -= 200
+                    basketTopFrame.origin.y -= self.sheetHeight
                     self.frame = basketTopFrame
                 }, completion: { finished in
                   //  print("Ragaie doors opened!")
@@ -151,13 +182,16 @@ public class DatePicker: UIView {
             showFlage = true
             }
     }
-    
-    
-    
+
+
+
+
+
+
     func dismissView() {
        UIView.animate(withDuration: 0.2, delay:0, options: .curveEaseOut, animations: {
             var basketTopFrame = self.frame
-            basketTopFrame.origin.y += 200
+            basketTopFrame.origin.y += self.sheetHeight
             self.frame = basketTopFrame
         }, completion: { finished in
             self.plurView.removeFromSuperview()
@@ -167,7 +201,7 @@ public class DatePicker: UIView {
         })
         showFlage = false
     }
-    
+
     
     
     @objc func selectItem(_ sender: UIButton) -> Void {
@@ -189,9 +223,20 @@ public class DatePicker: UIView {
     
     //Handle tap in view
     @objc func clickheader(_ sender : AnyObject)  {
+        if self.delegate != nil {
+            self.delegate.DatePicker(self, cancelAtDate: datePicker.date)
+        }
+        if let cancelBlock = self.cancelBlock  {
+            cancelBlock(datePicker.date)
+        }
+        
         dismissView()
     }
     
+    
+    
+    
+
  
 }
 

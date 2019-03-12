@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePicker" customModule="PickerList_Chtar" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePicker" customModule="ActionSheetBottom_Chtar" customModuleProvider="target">
             <connections>
                 <outlet property="DoneButton" destination="9Ny-l4-WIw" id="y9y-bV-U6q"/>
                 <outlet property="datePicker" destination="9aG-9u-fsZ" id="Df9-O2-u4O"/>
@@ -22,17 +22,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-Qq-jxz">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="39"/>
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                     <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="39" id="31e-qa-ouZ"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ny-l4-WIw">
-                    <rect key="frame" x="236" y="6" width="56" height="25"/>
+                    <rect key="frame" x="236" y="7.5" width="56" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="7n8-U2-9Qe"/>
                         <constraint firstAttribute="width" constant="56" id="qBK-F6-bzS"/>
@@ -54,9 +51,9 @@
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-9" id="23Z-vp-SkS"/>
                 <constraint firstItem="8BW-Qq-jxz" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" id="903-nE-gxe"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" constant="236" id="AJr-IY-Lct"/>
+                <constraint firstItem="8BW-Qq-jxz" firstAttribute="height" secondItem="f9a-8s-Fyh" secondAttribute="height" multiplier="0.2" id="GZH-ho-dEO"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="top" constant="10" id="S0m-23-afz"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerX" secondItem="f9a-8s-Fyh" secondAttribute="centerX" multiplier="1.75" id="TeP-Gy-Z2G"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" constant="6" id="XRK-Xn-cLN"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-8" id="clD-WT-0gu"/>
                 <constraint firstItem="8BW-Qq-jxz" firstAttribute="centerX" secondItem="f9a-8s-Fyh" secondAttribute="centerX" id="ghx-xl-the"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="leading" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-64" id="gyp-w0-eEc"/>
@@ -64,10 +61,11 @@
                 <constraint firstAttribute="trailing" secondItem="9Ny-l4-WIw" secondAttribute="trailing" constant="9" id="isl-Ok-9no"/>
                 <constraint firstItem="8BW-Qq-jxz" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" id="mIZ-IG-4AV"/>
                 <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerX" secondItem="8BW-Qq-jxz" secondAttribute="centerX" multiplier="1.75" id="pRD-qr-vx5"/>
+                <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerY" secondItem="8BW-Qq-jxz" secondAttribute="centerY" id="pUL-Rz-rGr"/>
+                <constraint firstItem="9aG-9u-fsZ" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="bottom" constant="-1" id="puy-qC-45M"/>
                 <constraint firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" id="saV-aV-YCn"/>
                 <constraint firstAttribute="trailing" secondItem="9aG-9u-fsZ" secondAttribute="trailing" id="uOZ-ao-2sT"/>
                 <constraint firstItem="9aG-9u-fsZ" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" id="vpo-cS-dac"/>
-                <constraint firstItem="9aG-9u-fsZ" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="bottom" id="w9e-Op-sko"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">

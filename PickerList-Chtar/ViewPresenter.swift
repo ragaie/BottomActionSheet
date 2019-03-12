@@ -14,7 +14,7 @@ class ViewPresenter: NSObject ,UITableViewDelegate,UITableViewDataSource,UIColle
     
     
     
-    var myView : ViewController!
+    weak var myView : ViewController!
     override init() {
         
         super.init()
@@ -54,6 +54,9 @@ class ViewPresenter: NSObject ,UITableViewDelegate,UITableViewDataSource,UIColle
         
     }
     
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
@@ -77,7 +80,7 @@ class ViewPresenter: NSObject ,UITableViewDelegate,UITableViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
        // let leftRightInset = self.myView.view.frame.size.width / 14.0
         
-        return UIEdgeInsetsMake(2, 10, 2, 10)
+        return UIEdgeInsets.init(top: 2, left: 10, bottom: 2, right: 10)
     }
     
    

@@ -8,34 +8,32 @@
 
 import UIKit
 
-class CustomPicker: UIView {
+class CustomPicker: UIView,Picker {
 
-
-   // @IBOutlet weak var DoneButton: UIButton!
-   
-    
-    
     var selectItem : Int! = 0
     private  var showFlage :Bool! = false
-    var doneBlock : ((_ index:Int) -> Void)!
  
     var ID : String! = "customeSheet"
-    
     var plurView : UIVisualEffectView!
-    
+    var showBlock : (()->())?
+    var hideBlock : (()->())?
     var customViewToShow : UIView!
     var sheetHeight : CGFloat! = 200
-    
+    var sheetWidth : CGFloat! = UIScreen.main.bounds.width
+
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
+        sheetHeight = frame.height
+        sheetWidth = frame.width
         initSubviews()
         initActionAndDelegete()
-        
+      
     }
     
-    
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -43,8 +41,6 @@ class CustomPicker: UIView {
         initActionAndDelegete()
     
     }
-    
-    
     
    var RestorationId : String!{
         didSet {
@@ -54,42 +50,39 @@ class CustomPicker: UIView {
         }
     }
   
- 
-    
-    
-    
+    //MARK : Init SubView
     func initSubviews() {
-
-      //  let  view =  UIView.init(frame: CGRect.init(x: 5, y: UIScreen.main.bounds.height, width: 300, height: sheetHeight))
-
-       // addSubview(view)
-        
-     self.frame = CGRect.init(x: 5, y: UIScreen.main.bounds.height, width:  UIScreen.main.bounds.width - 20, height: sheetHeight)
-        
-        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        plurView.backgroundColor = UIColor.lightGray
-        plurView.alpha = 0.5
-        
-        
-        
+        let xPosition = (UIScreen.main.bounds.width - sheetWidth) / 2
+        self.frame = CGRect.init(x: xPosition, y: UIScreen.main.bounds.height, width:  sheetWidth, height: sheetHeight)
+        let blurEffect = UIBlurEffect(style: .dark)
+        // 3
+        plurView = UIVisualEffectView(effect: blurEffect)
+        plurView.frame  =  CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        plurView.alpha = 0.7
+    
     }
     
     
     
-    // add action of of all View
+    //MARK :  add action of of all View
     func initActionAndDelegete()  {
-     
-        
-       // self.backgroundColor = UIColor.white
-
-      //  DoneButton.addTarget(self, action: "selectItem:", for: .touchUpInside)
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
-  
+        NotificationCenter.default.addObserver(self, selector: #selector(PickerList.rotated), name:  UIDevice.orientationDidChangeNotification, object: nil)
+
     }
     
     
+
+///handle rodation of screen
+@objc func rotated() {
+    if  ( UIDevice.current.orientation.isLandscape) ||  UIDevice.current.orientation.isPortrait  {
+        self.dismissView()
+        
+    }
+}
+
     
 
     
@@ -100,25 +93,20 @@ class CustomPicker: UIView {
         if showFlage == false {
             ///add user view
             if customViewToShow != nil {
-
-                customViewToShow.frame = CGRect.init(x: 5, y: 0, width: self.frame.width, height:  sheetHeight)
+                customViewToShow.frame = CGRect.init(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
                 self.addSubview(customViewToShow)
-                
             }
-            
             UIApplication.shared.keyWindow?.addSubview(plurView)
             UIApplication.shared.keyWindow?.addSubview(self)
             UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
                 var basketTopFrame = self.frame
-                
                 basketTopFrame.origin.y -= self.sheetHeight
-                
-                
                 self.frame = basketTopFrame
             }, completion: { finished in
-               // print("Ragaie doors opened!")
+                if let showBlock = self.showBlock {
+                   showBlock()
+                }
             })
-            
             showFlage = true
         }
         
@@ -140,20 +128,11 @@ class CustomPicker: UIView {
         }, completion: { finished in
             // remove plurView and pickerVieew from Screen
             self.plurView.removeFromSuperview()
-            self.self.removeFromSuperview()
-            
-            //            if self.delegate != nil {
-            //
-            //                if self.delegate.pickerListDismissed != nil {
-            //
-            //                    self.delegate.pickerListDismissed!(self)
-            //                }
-            //
-            //
-            //            }
-            //            if self.cancelBlock != nil {
-            //                self.cancelBlock()
-            //            }
+            self.removeFromSuperview()
+            if let block = self.hideBlock  {
+                
+                block()
+            }
         })
         showFlage = false
         
@@ -164,18 +143,6 @@ class CustomPicker: UIView {
         
         dismissView()
         
-    }
-    /// that call when done method selected
-    @objc  func selectItem(_ sender: UIButton) -> Void {
-//        if delegate != nil {
-//            delegate.pickerList(self, didSelectRowAt: selectItem)
-//        }
-        
-        if (doneBlock != nil){
-            doneBlock(selectItem)
-        }
-        // dismiss view
-        dismissView()
     }
     
     
