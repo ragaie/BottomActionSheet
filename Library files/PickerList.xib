@@ -1,87 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickerList" customModule="ActionSheetBottom_Chtar" customModuleProvider="target">
             <connections>
                 <outlet property="DoneButton" destination="9Ny-l4-WIw" id="A8X-m5-EaW"/>
-                <outlet property="headerLabel" destination="8BW-Qq-jxz" id="dBU-U6-xAI"/>
+                <outlet property="containeView" destination="Hbo-JD-isd" id="4q2-du-9k1"/>
                 <outlet property="pickerView" destination="pvd-kj-8CE" id="gMe-hQ-qrI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="f9a-8s-Fyh">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="141"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="175"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-Qq-jxz">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
-                    <color key="backgroundColor" red="0.94893664121627808" green="0.94907277822494507" blue="0.94890671968460083" alpha="0.3595622859589041" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ny-l4-WIw">
-                    <rect key="frame" x="244" y="1.5" width="56" height="25"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hbo-JD-isd">
+                    <rect key="frame" x="0.0" y="15" width="300" height="160"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ny-l4-WIw">
+                            <rect key="frame" x="229" y="7" width="56" height="25"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="7n8-U2-9Qe"/>
+                                <constraint firstAttribute="width" constant="56" id="qBK-F6-bzS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <state key="normal" title="Done">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="7n8-U2-9Qe"/>
-                        <constraint firstAttribute="width" constant="56" id="qBK-F6-bzS"/>
+                        <constraint firstAttribute="trailing" secondItem="9Ny-l4-WIw" secondAttribute="trailing" constant="15" id="2h7-6A-rHQ"/>
+                        <constraint firstItem="9Ny-l4-WIw" firstAttribute="top" secondItem="Hbo-JD-isd" secondAttribute="top" constant="7" id="AXJ-do-nf7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                    <state key="normal" title="Done">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                </button>
+                </view>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-kj-8CE">
-                    <rect key="frame" x="0.0" y="29.5" width="300" height="111.5"/>
+                    <rect key="frame" x="0.0" y="40" width="300" height="135"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pickerView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vy-Mf-QEW">
+                    <rect key="frame" x="120" y="0.0" width="60" height="6"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="T1K-ls-eoR"/>
+                        <constraint firstAttribute="height" constant="6" id="aom-AL-DEb"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-9" id="23Z-vp-SkS"/>
-                <constraint firstItem="8BW-Qq-jxz" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" id="903-nE-gxe"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" constant="236" id="AJr-IY-Lct"/>
+                <constraint firstAttribute="bottom" secondItem="Hbo-JD-isd" secondAttribute="bottom" id="82C-FY-Tuy"/>
+                <constraint firstItem="Hbo-JD-isd" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" id="8Ak-Jo-uxD"/>
                 <constraint firstAttribute="bottom" secondItem="pvd-kj-8CE" secondAttribute="bottom" id="BTN-Eg-K0a"/>
                 <constraint firstAttribute="trailing" secondItem="pvd-kj-8CE" secondAttribute="trailing" id="FWH-9j-tRy"/>
-                <constraint firstItem="pvd-kj-8CE" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="bottom" constant="1.5" id="K6t-CN-Wsa"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="top" secondItem="8BW-Qq-jxz" secondAttribute="top" constant="10" id="S0m-23-afz"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerX" secondItem="f9a-8s-Fyh" secondAttribute="centerX" multiplier="1.75" id="TeP-Gy-Z2G"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerY" secondItem="8BW-Qq-jxz" secondAttribute="centerY" id="U3a-Sn-jnI"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" id="eYv-zv-7sE"/>
+                <constraint firstItem="pvd-kj-8CE" firstAttribute="top" secondItem="Hbo-JD-isd" secondAttribute="top" constant="25" id="cOt-O9-YUl"/>
+                <constraint firstAttribute="trailing" secondItem="Hbo-JD-isd" secondAttribute="trailing" id="d4S-Ql-LZF"/>
+                <constraint firstItem="pvd-kj-8CE" firstAttribute="trailing" secondItem="Hbo-JD-isd" secondAttribute="trailing" id="gKX-71-0uQ"/>
                 <constraint firstItem="pvd-kj-8CE" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" id="gdH-PX-Tu7"/>
-                <constraint firstItem="8BW-Qq-jxz" firstAttribute="centerX" secondItem="f9a-8s-Fyh" secondAttribute="centerX" id="ghx-xl-the"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="leading" secondItem="8BW-Qq-jxz" secondAttribute="trailing" constant="-64" id="gyp-w0-eEc"/>
-                <constraint firstAttribute="trailing" secondItem="9Ny-l4-WIw" secondAttribute="trailing" constant="9" id="isl-Ok-9no"/>
+                <constraint firstItem="0vy-Mf-QEW" firstAttribute="centerX" secondItem="f9a-8s-Fyh" secondAttribute="centerX" id="goP-He-evE"/>
                 <constraint firstAttribute="bottom" secondItem="pvd-kj-8CE" secondAttribute="bottom" id="k6B-5d-eYO"/>
-                <constraint firstItem="8BW-Qq-jxz" firstAttribute="leading" secondItem="f9a-8s-Fyh" secondAttribute="leading" id="mIZ-IG-4AV"/>
-                <constraint firstItem="9Ny-l4-WIw" firstAttribute="centerX" secondItem="8BW-Qq-jxz" secondAttribute="centerX" multiplier="1.75" id="pRD-qr-vx5"/>
-                <constraint firstAttribute="trailing" secondItem="8BW-Qq-jxz" secondAttribute="trailing" id="saV-aV-YCn"/>
-                <constraint firstItem="8BW-Qq-jxz" firstAttribute="height" secondItem="f9a-8s-Fyh" secondAttribute="height" multiplier="0.2" id="tf4-Yx-CZC"/>
+                <constraint firstItem="pvd-kj-8CE" firstAttribute="leading" secondItem="Hbo-JD-isd" secondAttribute="leading" id="n2h-XH-hRK"/>
+                <constraint firstItem="pvd-kj-8CE" firstAttribute="bottom" secondItem="Hbo-JD-isd" secondAttribute="bottom" id="sjs-EB-QJk"/>
+                <constraint firstItem="Hbo-JD-isd" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" constant="15" id="tnJ-Mp-MUp"/>
+                <constraint firstItem="0vy-Mf-QEW" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" id="uHc-qM-fV2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="ghx-xl-the"/>
                     <exclude reference="k6B-5d-eYO"/>
-                    <exclude reference="23Z-vp-SkS"/>
-                    <exclude reference="AJr-IY-Lct"/>
-                    <exclude reference="S0m-23-afz"/>
-                    <exclude reference="TeP-Gy-Z2G"/>
-                    <exclude reference="gyp-w0-eEc"/>
-                    <exclude reference="isl-Ok-9no"/>
-                    <exclude reference="pRD-qr-vx5"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-376" y="-148.87556221889056"/>
+            <point key="canvasLocation" x="-376" y="-133.5832083958021"/>
         </view>
     </objects>
 </document>

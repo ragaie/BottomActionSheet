@@ -34,13 +34,11 @@ extension UIResponder {
 
  public class PickerList: UIView,UIPickerViewDelegate,UIPickerViewDataSource,Picker {
 
-    
-    
     @IBOutlet weak var DoneButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
-    
- 
+    @IBOutlet weak var containeView: UIView!
+
     private  var showFlage :Bool! = false
     var width :CGFloat? = UIScreen.main.bounds.width
     private var sheetHeight : CGFloat! = 200
@@ -51,41 +49,30 @@ extension UIResponder {
     var dataSourceItem : [Any]! = []/// ["ghjghjghjhj","etertret","fsfsfs"]
     var delegate : SheetPickerDelegate!
     var buttonTitle : String! = "Done"
-
-     var ID : String! = "pickerlist"
-    
+    var ID : String! = "pickerlist"
     var plurView : UIVisualEffectView!
-    //MARK: Initializers
-    override init(frame : CGRect) {
-        super.init(frame : frame)
-        sheetHeight = frame.size.height
-        initSubviews()
-        initActionAndDelegete()
+    
+    
+    private var pickerCornerRaduis : CGFloat {
+        get {
+            return 15
+        }
+    }
+    
+    private var maskLayer  : CAShapeLayer {
+        get {
+            let path = UIBezierPath(roundedRect:(self ).bounds,
+                                    byRoundingCorners:[.topRight, .topLeft],
+                                    cornerRadii: CGSize(width: pickerCornerRaduis, height:  pickerCornerRaduis))
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = path.cgPath
+            return  maskLayer
+        }
+    }
 
-    }
-    ///remove any listen for notification
-    deinit {
-        
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-  
-    
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initSubviews()
-        initActionAndDelegete()
-        
-        
-        // change size and location after init it to not apper in view 
-        self.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: width ?? UIScreen.main.bounds.width, height: 200)
-    }
     @IBInspectable var RestorationId : String!{
         didSet {
-            
             ID = RestorationId
-            
         }
     }
     
@@ -93,11 +80,9 @@ extension UIResponder {
         didSet {
             DoneButton.layer.cornerRadius = cornerRadius
             DoneButton.clipsToBounds = true
-            
-            
-         
         }
     }
+    
     @IBInspectable var headerColor: UIColor = UIColor.blue {
         didSet {
             
@@ -110,44 +95,49 @@ extension UIResponder {
 
         }
     }
+    //MARK: Initializers
+    override init(frame : CGRect) {
+        super.init(frame : frame)
+        sheetHeight = frame.size.height
+        initSubviews()
+        initActionAndDelegete()
+        
+    }
+    ///remove any listen for notification
+    deinit {
+        
+        NotificationCenter.default.removeObserver(self)
+    }
     
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initSubviews()
+        initActionAndDelegete()
+        // change size and location after init it to not apper in view
+        self.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: width ?? UIScreen.main.bounds.width, height: 200)
+    }
 
-    
     func initSubviews() {
-        
         let bundle = Bundle(for: type(of: self))
-        
-        
         let nib = UINib(nibName: "PickerList", bundle: bundle)
-        
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        
         // to make view fit view in design you welcome.
        view.frame = self.bounds
-        
-        //   view.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
-        // Make the view stretch with containing view
+                // Make the view stretch with containing view
         // to fit like you want in storyboard
         view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         // nib.contentView.frame = bounds
         addSubview(view)
         
-        
+        containeView.clipsToBounds = true
+        containeView.layer.mask = maskLayer
         let blurEffect = UIBlurEffect(style: .dark)
         // 3
         plurView = UIVisualEffectView(effect: blurEffect)
         plurView.frame  =  CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        plurView.alpha = 0.7
-        
-//        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-//        plurView.backgroundColor = UIColor.lightGray
-//        plurView.alpha = 0.5
-//      
- 
-    
+        plurView.alpha = 1
+
     }
-    
- 
     
 // add action of of all View
     func initActionAndDelegete()  {
@@ -157,9 +147,7 @@ extension UIResponder {
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
-        
             NotificationCenter.default.addObserver(self, selector: #selector(PickerList.rotated), name:  UIDevice.orientationDidChangeNotification, object: nil)
-   
 }
 
     ///handle rodation of screen
@@ -170,29 +158,20 @@ extension UIResponder {
     }
 }
 
-    
-
 /////// pickerDataSource and delegate
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 1
     }
-    
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         return dataSourceItem.count
     }
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return  "\(dataSourceItem[row])"
-        
-        
     }
-    
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectItem = row
-//        let lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
-//        lightImpactFeedbackGenerator.impactOccurred()
     }
     
     
@@ -210,18 +189,10 @@ extension UIResponder {
                 }, completion: { finished in
                    // print("Ragaie doors opened!")
                 })
-        
             showFlage = true
             }
         
     }
-    
-    
-    
-    
-
-    
-    
 /// dismiss view from screen
     func dismissView() {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {

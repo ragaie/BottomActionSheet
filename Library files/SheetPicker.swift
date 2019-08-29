@@ -58,6 +58,7 @@ public class SheetPicker: NSObject{
             return UIScreen.main.bounds.width
         }
     }
+    
     private var pickerX : CGFloat {
         get {
             
@@ -82,67 +83,38 @@ public class SheetPicker: NSObject{
     
     private var pickerY : CGFloat {
         get {
-            
           return UIScreen.main.bounds.height
         }
     }
-   private var pickerFrame : CGRect{
-        
+    
+    private var pickerFrame : CGRect{
         get{
-            
-            
             return CGRect.init(x:  pickerX  , y: pickerY, width: pickerWidth, height: pickerHeight)
-
-            
         }
     }
     
     private var pickerCornerRaduis : CGFloat {
         get {
-            
-            if UIDeviceOrientation.landscapeLeft == UIDevice.current.orientation  || UIDeviceOrientation.landscapeRight == UIDevice.current.orientation{
-                
-                return 10
-                
-            }
-            if UIDeviceOrientation.portrait == UIDevice.current.orientation {
-                if UIDevice.current.userInterfaceIdiom == .pad {
-                    //do stuff
-                    return 10
-                }
-                return 0
-            }
-          
-            return 0
-        }
+             return 10
+       }
     }
-    private var maskLayer  : CAShapeLayer {
     
+    private var maskLayer  : CAShapeLayer {
         get {
-            
             let path = UIBezierPath(roundedRect:(customPicker as! UIView ).bounds,
                                     byRoundingCorners:[.topRight, .topLeft],
                                     cornerRadii: CGSize(width: pickerCornerRaduis, height:  pickerCornerRaduis))
             let maskLayer = CAShapeLayer()
             maskLayer.path = path.cgPath
             return  maskLayer
-            
-            
-         
-            
         }
     }
     
-    
-    
     override init() {
         super.init()
-   
-     
     }
 
     ///MARK : Date picker part
- 
     public  init(datePickerWithBlock doneText : String,mode : UIDatePicker.Mode ,local : Locale, onCompletion: @escaping((_ date:Date) -> Void)) {
         super.init()
         let  datePicker =   DatePicker.init(frame: pickerFrame)
@@ -152,19 +124,9 @@ public class SheetPicker: NSObject{
         datePicker.pickerMode = mode
         datePicker.buttonTitle = doneText
         customPicker = datePicker
-        ///set corner raduis for top corner
-
-        datePicker.layer.mask = maskLayer
-        
-        
-        
-   
-        
-        
-
     }
+    
     public  init(datePickerWithBlock doneText : String,mode : UIDatePicker.Mode ,local : Locale, onCompletion: @escaping((_ date:Date) -> Void), onCancel: ((_ date:Date?) -> Void)? ) {
-       
         super.init()
         let  datePicker =   DatePicker.init(frame: pickerFrame)
         datePicker.doneBlock = onCompletion
@@ -173,11 +135,6 @@ public class SheetPicker: NSObject{
         datePicker.pickerMode = mode
         datePicker.buttonTitle = doneText
         customPicker = datePicker
-
-        ///set corner raduis for top corner
-       datePicker.layer.mask = maskLayer
-
-
     }
     
    public   init(datePickerWithDelegate doneText : String,mode : UIDatePicker.Mode ,local : Locale,delegate : SheetPickerDateDelegate) {
@@ -187,19 +144,10 @@ public class SheetPicker: NSObject{
         datePicker.pickerLocale = local
         datePicker.pickerMode = mode
         datePicker.buttonTitle = doneText
-    ///set corner raduis for top corner
         customPicker = datePicker
-
-        datePicker.layer.mask = maskLayer
-
     }
     
-    
-    
-    
-    
-    //MARK : normal picker with any type of data
-    
+//MARK : normal picker with any type of data
    public   init(sheetPickerWithdelegate doneText : String , delegate: SheetPickerDelegate,dataSource : [Any]) {
         super.init()
        let actionPicker =   PickerList.init(frame: pickerFrame)
@@ -207,10 +155,7 @@ public class SheetPicker: NSObject{
         actionPicker.delegate = delegate
         actionPicker.buttonTitle = doneText
         customPicker = actionPicker
-       actionPicker.layer.mask = maskLayer
-
     }
-    
     
    public init(sheetPickerWithdblock doneText : String ,dataSource : [Any], onCompletion: @escaping ((_ index:Int) -> Void)) {
     super.init()
@@ -219,8 +164,6 @@ public class SheetPicker: NSObject{
         actionPicker.doneBlock = onCompletion
         actionPicker.buttonTitle = doneText
         customPicker = actionPicker
-        actionPicker.layer.mask = maskLayer
-
     }
     
     public init(sheetPickerWithdblock doneText : String ,dataSource : [Any] ,  onCompletion: @escaping ((_ index:Int) -> Void),  onCancelation:  ((_ index:Int) -> Void)?) {
@@ -231,8 +174,6 @@ public class SheetPicker: NSObject{
         actionPicker.doneBlock = onCompletion
         actionPicker.buttonTitle = doneText
         customPicker = actionPicker
-        actionPicker.layer.mask = maskLayer
-
     }
     
     
@@ -243,23 +184,21 @@ public class SheetPicker: NSObject{
     
     
     //MARK :Create custom picker with what ever view you want
-   public   init(CustomePickerWithView customView : UIView,height : CGFloat,width : CGFloat) {
+   public   init(CustomePickerWithView customView : UIView,height : CGFloat) {
       //  UIScreen.main.bounds.width
-    let  customPickerView  =   CustomPicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height,width: width , height: height))
+    let  customPickerView  =   CustomPicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height,width: UIScreen.main.bounds.width , height: height ))
         customPickerView.customViewToShow = customView
-        // actionPicker.cancelBlock = onCancel
         customPickerView.sheetHeight = height
     customPicker =  customPickerView
     }
 
     //init with block for show picker and block for hide it.
-    public   init(CustomePickerWithView customView : UIView,height : CGFloat,width : CGFloat,didShow: (() -> ())?,  didHide:  (()->())?) {
+    public   init(CustomePickerWithView customView : UIView,height : CGFloat,didShow: (() -> ())?,  didHide:  (()->())?) {
         //  UIScreen.main.bounds.width
-        let  customPickerView  =   CustomPicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height,width: width , height: height))
+        let  customPickerView  =   CustomPicker.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height,width: UIScreen.main.bounds.width , height: height))
         customPickerView.customViewToShow = customView
-    customPickerView.showBlock = didShow
+        customPickerView.showBlock = didShow
         customPickerView.hideBlock = didHide
-        // actionPicker.cancelBlock = onCancel
         customPickerView.sheetHeight = height
         customPicker =  customPickerView
     }

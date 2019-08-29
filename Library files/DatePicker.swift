@@ -18,15 +18,11 @@ import UIKit
 
 
 public class DatePicker: UIView ,Picker{
-   
-    
-
-    
     
     @IBOutlet weak var DoneButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
-  
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var containeView: UIView!
     
     var selectItem : Int! = 0
     private  var showFlage :Bool! = false
@@ -41,6 +37,32 @@ public class DatePicker: UIView ,Picker{
 
     var pickerLocale : Locale! = Locale.init(identifier: "en")
     var pickerMode : UIDatePicker.Mode! = .dateAndTime
+    
+    public var RestorationId : String!{
+        didSet {
+            
+            ID = RestorationId
+            
+        }
+    }
+    
+    private var pickerCornerRaduis : CGFloat {
+        get {
+            return 15
+        }
+    }
+    
+    private var maskLayer  : CAShapeLayer {
+        get {
+            let path = UIBezierPath(roundedRect:(self ).bounds,
+                                    byRoundingCorners:[.topRight, .topLeft],
+                                    cornerRadii: CGSize(width: pickerCornerRaduis, height:  pickerCornerRaduis))
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = path.cgPath
+            return  maskLayer
+        }
+    }
+    
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
@@ -62,37 +84,16 @@ public class DatePicker: UIView ,Picker{
         super.init(coder: aDecoder)
         initSubviews()
         initActionAndDelegete()
-        
-        
         // change size and location after init it to not apper in view 
         self.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 200)
     }
     
-    
-    
-    
     override public func layoutSubviews() {
         super.layoutSubviews()
-        //setButtons()
-        
     }
     
-    
-    
-    
-   public var RestorationId : String!{
-        didSet {
-            
-            ID = RestorationId
-            
-        }
-    }
-    
-
   
-    
 
-    
     func initSubviews() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "DatePicker", bundle: bundle)
@@ -103,48 +104,24 @@ public class DatePicker: UIView ,Picker{
         // to fit like you want in storyboard
         view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         //addSubview(view)
-  
         addSubview(view)
-     
-//                let path = UIBezierPath(roundedRect:self.frame,
-//                                        byRoundingCorners:[.topRight, .topLeft],
-//                                        cornerRadii: CGSize(width: 10, height:  10))
-//                let maskLayer = CAShapeLayer()
-//                maskLayer.path = path.cgPath
-//
-//        self.layer.mask = maskLayer
-   
-        
+        containeView.clipsToBounds = true
+        containeView.layer.mask = maskLayer
         // 2
         let blurEffect = UIBlurEffect(style: .dark)
         // 3
         plurView = UIVisualEffectView(effect: blurEffect)
         plurView.frame  =  CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        plurView.alpha = 0.7
-
-//        plurView = UIVisualEffectView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-//        plurView.backgroundColor = UIColor.lightGray
-//        plurView.alpha = 0.7
-        
-      
+        plurView.alpha = 1
     }
   
-    
-    
-    
     // add action of dropDown
     func initActionAndDelegete()  {
-        
-        
         DoneButton.addTarget(self, action: #selector(DatePicker.selectItem(_:)), for: .touchUpInside)
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DatePicker.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
-        
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.rotated), name:  UIDevice.orientationDidChangeNotification, object: nil)
-    
     }
 
     @objc func rotated() {
@@ -153,11 +130,6 @@ public class DatePicker: UIView ,Picker{
             
         }
     }
-    
-    
- 
-    
-    
 
     /// show view
     func show() {
@@ -165,13 +137,9 @@ public class DatePicker: UIView ,Picker{
         datePicker.locale = pickerLocale
         datePicker.datePickerMode = pickerMode
         DoneButton.setTitle(buttonTitle, for: .normal)
-
-
        if showFlage == false {
-
             UIApplication.shared.keyWindow?.addSubview(plurView)
             UIApplication.shared.keyWindow?.addSubview(self)
-
                 UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
                     var basketTopFrame = self.frame
                     basketTopFrame.origin.y -= self.sheetHeight
@@ -210,16 +178,10 @@ public class DatePicker: UIView ,Picker{
         }
         dismissView()
        showFlage =  false
-        
-        
         if (doneBlock != nil){
             doneBlock(datePicker.date)
         }
-        
     }
-
-    
-    
     
     //Handle tap in view
     @objc func clickheader(_ sender : AnyObject)  {
@@ -229,15 +191,9 @@ public class DatePicker: UIView ,Picker{
         if let cancelBlock = self.cancelBlock  {
             cancelBlock(datePicker.date)
         }
-        
         dismissView()
     }
-    
-    
-    
-    
 
- 
 }
 
 

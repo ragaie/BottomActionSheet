@@ -11,5 +11,4 @@ import Foundation
 protocol Picker {
    func dismissView()
     func show()
-    
 }

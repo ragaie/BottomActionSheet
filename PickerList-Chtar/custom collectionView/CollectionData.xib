@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,10 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hHL-CH-jnM">
-                    <rect key="frame" x="0.0" y="39" width="375" height="178"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ebg-zw-AhD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5gc-m9-cb0">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xdD-kK-fHi">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -28,16 +28,18 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="hHL-CH-jnM" firstAttribute="bottom" secondItem="Aqs-ZB-l8l" secondAttribute="bottom" id="0fs-W4-giT"/>
-                <constraint firstItem="hHL-CH-jnM" firstAttribute="leading" secondItem="Aqs-ZB-l8l" secondAttribute="leading" id="Bfw-pL-Akg"/>
-                <constraint firstItem="hHL-CH-jnM" firstAttribute="trailing" secondItem="Aqs-ZB-l8l" secondAttribute="trailing" id="Jt4-dA-RsU"/>
-                <constraint firstItem="hHL-CH-jnM" firstAttribute="top" secondItem="Aqs-ZB-l8l" secondAttribute="top" constant="39" id="ax7-Rl-Tfz"/>
+                <constraint firstItem="Ebg-zw-AhD" firstAttribute="leading" secondItem="Aqs-ZB-l8l" secondAttribute="leading" id="39O-TC-QmT"/>
+                <constraint firstAttribute="bottom" secondItem="Ebg-zw-AhD" secondAttribute="bottom" id="89l-bH-ESP"/>
+                <constraint firstItem="Ebg-zw-AhD" firstAttribute="width" secondItem="Aqs-ZB-l8l" secondAttribute="width" id="Keq-gz-RGg"/>
+                <constraint firstItem="Ebg-zw-AhD" firstAttribute="top" secondItem="Aqs-ZB-l8l" secondAttribute="top" id="MCv-d7-RKX"/>
+                <constraint firstAttribute="trailing" secondItem="Ebg-zw-AhD" secondAttribute="trailing" id="hUH-uC-hbs"/>
+                <constraint firstItem="Ebg-zw-AhD" firstAttribute="height" secondItem="Aqs-ZB-l8l" secondAttribute="height" id="i1E-pm-gRC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="collectionDataPlay" destination="hHL-CH-jnM" id="aX1-fN-kqD"/>
+                <outlet property="collectionDataPlay" destination="Ebg-zw-AhD" id="Drh-aS-lDr"/>
             </connections>
-            <point key="canvasLocation" x="-147.5" y="-61.5"/>
+            <point key="canvasLocation" x="-148" y="-61.619190404797607"/>
         </view>
     </objects>
 </document>

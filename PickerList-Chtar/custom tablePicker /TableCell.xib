@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to test " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsi-3E-3py">
-                        <rect key="frame" x="135" y="20" width="129" height="21"/>
+                        <rect key="frame" x="68" y="20.5" width="129" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Check" translatesAutoresizingMaskIntoConstraints="NO" id="BjB-Aj-YEM">
-                        <rect key="frame" x="87" y="11" width="40" height="40"/>
+                        <rect key="frame" x="20" y="11" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="08n-mW-gNv"/>
                             <constraint firstAttribute="width" secondItem="BjB-Aj-YEM" secondAttribute="height" multiplier="1:1" id="Syd-pU-jCh"/>
@@ -34,7 +33,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="BjB-Aj-YEM" firstAttribute="leading" secondItem="cqd-JX-KRq" secondAttribute="leading" constant="87" id="J3T-lu-YdJ"/>
+                    <constraint firstItem="BjB-Aj-YEM" firstAttribute="leading" secondItem="cqd-JX-KRq" secondAttribute="leading" constant="20" id="J3T-lu-YdJ"/>
                     <constraint firstItem="lsi-3E-3py" firstAttribute="leading" secondItem="BjB-Aj-YEM" secondAttribute="trailing" constant="8" id="kND-oD-haC"/>
                     <constraint firstItem="BjB-Aj-YEM" firstAttribute="centerY" secondItem="cqd-JX-KRq" secondAttribute="centerY" constant="1.25" id="rh2-Rj-hse"/>
                     <constraint firstItem="lsi-3E-3py" firstAttribute="centerY" secondItem="BjB-Aj-YEM" secondAttribute="centerY" id="skg-OK-pF7"/>

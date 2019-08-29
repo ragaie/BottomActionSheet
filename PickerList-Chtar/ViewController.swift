@@ -78,26 +78,37 @@ class ViewController: UIViewController {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "TableView", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! TableViewTest
-        
+
         let cellNib = UINib(nibName: "TableCell", bundle: nil)
         view.tableViewData.register(cellNib, forCellReuseIdentifier: "cellTableID")
-        
+
          view.tableViewData.delegate = myPresenter
          view.tableViewData.dataSource = myPresenter
-         view.layer.cornerRadius = 12
         // custome piker
-        customePicker =  SheetPicker.init(CustomePickerWithView : view, height: 300, width: UIScreen.main.bounds.width - 60)
+        customePicker =  SheetPicker.init(CustomePickerWithView : view, height: 500)
 
         customePicker.show()
 
-//        SheetPicker.init(CustomePickerWithView: view, height: 200  , width: 400, didShow: {
-//            print("heelo ")
-//        }) {
-//            
-//            
-//            print("hide")
-//            }.show()
-
+    
+//        /// load custom view and add it to view movement
+//        let bundle = Bundle(for: type(of: self))
+//        let nib = UINib(nibName: "CollectionData", bundle: bundle)
+//        let view = nib.instantiate(withOwner: self, options: nil)[0] as! CollectionDataTest
+//
+//        let cellNib = UINib(nibName: "CollectionCell", bundle: nil)
+//        view.collectionDataPlay.register(cellNib, forCellWithReuseIdentifier: "collectionCellID")
+//
+//
+//        view.collectionDataPlay.delegate = myPresenter
+//        view.collectionDataPlay.dataSource = myPresenter
+//        // view.layer.cornerRadius = 12
+//        // custome piker
+//        customePicker =  SheetPicker.init(CustomePickerWithView: view, height: 400)
+//        customePicker.show()
+//
+//
+        
+        
     }
     
     
@@ -117,10 +128,11 @@ class ViewController: UIViewController {
         
         view.collectionDataPlay.delegate = myPresenter
         view.collectionDataPlay.dataSource = myPresenter
-        view.layer.cornerRadius = 12
         // custome piker
-        customePicker =  SheetPicker.init(CustomePickerWithView: view, height: 300, width: 400)
+        customePicker =  SheetPicker.init(CustomePickerWithView: view, height: 500)
         customePicker.show()
+        
+      //  view.collectionDataPlay.updateConstraintsIfNeeded()
         
         
         

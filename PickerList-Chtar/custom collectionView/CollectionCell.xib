@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,14 +19,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Check" translatesAutoresizingMaskIntoConstraints="NO" id="bfJ-6o-xLR">
-                        <rect key="frame" x="17" y="9" width="46" height="52"/>
+                        <rect key="frame" x="22.5" y="15" width="35" height="39.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="bfJ-6o-xLR" secondAttribute="height" multiplier="23:26" id="bhO-cJ-b6p"/>
-                            <constraint firstAttribute="width" constant="46" id="qRK-kc-X6J"/>
+                            <constraint firstAttribute="width" constant="35" id="qRK-kc-X6J"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJi-52-BTP">
-                        <rect key="frame" x="7.5" y="73" width="65.5" height="16"/>
+                        <rect key="frame" x="7.5" y="66.5" width="65.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="13"/>
                         <color key="textColor" red="0.085386164489999999" green="0.48004096750000003" blue="0.9989228845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +38,7 @@
                 <constraint firstItem="BJi-52-BTP" firstAttribute="centerX" secondItem="bfJ-6o-xLR" secondAttribute="centerX" id="0Nz-Bg-F9U"/>
                 <constraint firstItem="BJi-52-BTP" firstAttribute="top" secondItem="bfJ-6o-xLR" secondAttribute="bottom" constant="12" id="7BU-AC-YwQ"/>
                 <constraint firstItem="bfJ-6o-xLR" firstAttribute="centerX" secondItem="GQM-8C-yql" secondAttribute="centerX" id="DUZ-tw-KRq"/>
-                <constraint firstItem="bfJ-6o-xLR" firstAttribute="top" secondItem="GQM-8C-yql" secondAttribute="top" constant="9" id="jhE-eZ-Uqg"/>
+                <constraint firstItem="bfJ-6o-xLR" firstAttribute="top" secondItem="GQM-8C-yql" secondAttribute="top" constant="15" id="jhE-eZ-Uqg"/>
             </constraints>
             <size key="customSize" width="80" height="94"/>
             <userDefinedRuntimeAttributes>

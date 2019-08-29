@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomPicker" customModule="ActionSheetBottom_Chtar" customModuleProvider="target">
+            <connections>
+                <outlet property="containeView" destination="RUB-c7-tUl" id="3vc-dg-Xko"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="384"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUB-c7-tUl">
+                    <rect key="frame" x="0.0" y="12" width="414" height="372"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WzS-fU-8Rw">
+                    <rect key="frame" x="177" y="0.0" width="60" height="6"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="6" id="c64-wO-5nl"/>
+                        <constraint firstAttribute="width" constant="60" id="h83-4h-8Pt"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RUB-c7-tUl" secondAttribute="trailing" id="61B-UD-9q6"/>
+                <constraint firstItem="WzS-fU-8Rw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DyT-Td-s91"/>
+                <constraint firstItem="RUB-c7-tUl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="Jpo-Re-J1n"/>
+                <constraint firstItem="RUB-c7-tUl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YEO-QC-kov"/>
+                <constraint firstAttribute="bottom" secondItem="RUB-c7-tUl" secondAttribute="bottom" id="dTP-2I-PyC"/>
+                <constraint firstItem="WzS-fU-8Rw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wec-nu-gwm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="32" y="-23"/>
+        </view>
+    </objects>
+</document>

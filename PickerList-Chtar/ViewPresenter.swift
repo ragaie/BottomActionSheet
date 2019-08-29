@@ -46,43 +46,35 @@ class ViewPresenter: NSObject ,UITableViewDelegate,UITableViewDataSource,UIColle
    /// collectionView
     
   
-    
-    
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 17
-        
+        return 20
     }
-    
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCellID", for: indexPath)
-        return cell
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
-        print(indexPath)
-        myView.customePicker.dismiss()
+               myView.customePicker.dismiss()
+
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCellID", for: indexPath)
+               return cell
+        
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
        // let picDimension = self.myView.view.frame.size.width / 4.0
         return CGSize(width: 80, height: 95)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
        // let leftRightInset = self.myView.view.frame.size.width / 14.0
-        
-        return UIEdgeInsets.init(top: 2, left: 10, bottom: 2, right: 10)
+
+        return UIEdgeInsets.init(top: 10, left: 10, bottom: 0, right: 10)
     }
-    
+
    
     
 }
