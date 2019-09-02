@@ -12,10 +12,7 @@ import UIKit
 @objc public protocol SheetPickerDateDelegate {
     func DatePicker(_ datepicker: DatePicker, didSelectDate date: Date)
     func DatePicker(_ datepicker: DatePicker, cancelAtDate date: Date)
-
-   
 }
-
 
 public class DatePicker: UIView ,Picker{
     
@@ -32,9 +29,9 @@ public class DatePicker: UIView ,Picker{
     var doneBlock : ((_ date:Date) -> Void)!
     var cancelBlock : ((_ date:Date)->Void)?
     var buttonTitle : String! = "Done"
-     var ID : String! = "pickerlist"
-     var plurView : UIVisualEffectView!
-
+    var ID : String! = "pickerlist"
+    var plurView : UIVisualEffectView!
+    
     var pickerLocale : Locale! = Locale.init(identifier: "en")
     var pickerMode : UIDatePicker.Mode! = .dateAndTime
     
@@ -69,16 +66,7 @@ public class DatePicker: UIView ,Picker{
         sheetHeight = frame.size.height
         initSubviews()
         initActionAndDelegete()
-
-
     }
-
-    deinit {
-
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -92,8 +80,6 @@ public class DatePicker: UIView ,Picker{
         super.layoutSubviews()
     }
     
-  
-
     func initSubviews() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "DatePicker", bundle: bundle)
@@ -114,7 +100,7 @@ public class DatePicker: UIView ,Picker{
         plurView.frame  =  CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         plurView.alpha = 1
     }
-  
+    
     // add action of dropDown
     func initActionAndDelegete()  {
         DoneButton.addTarget(self, action: #selector(DatePicker.selectItem(_:)), for: .touchUpInside)
@@ -123,61 +109,54 @@ public class DatePicker: UIView ,Picker{
         plurView.addGestureRecognizer(singleTap)
         NotificationCenter.default.addObserver(self, selector: #selector(DatePicker.rotated), name:  UIDevice.orientationDidChangeNotification, object: nil)
     }
-
+    
     @objc func rotated() {
         if  ( UIDevice.current.orientation.isLandscape) ||  UIDevice.current.orientation.isPortrait  {
             self.dismissView()
             
         }
     }
-
+    
     /// show view
     func show() {
         // set some data for view befor using it
         datePicker.locale = pickerLocale
         datePicker.datePickerMode = pickerMode
         DoneButton.setTitle(buttonTitle, for: .normal)
-       if showFlage == false {
+        if showFlage == false {
             UIApplication.shared.keyWindow?.addSubview(plurView)
             UIApplication.shared.keyWindow?.addSubview(self)
-                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-                    var basketTopFrame = self.frame
-                    basketTopFrame.origin.y -= self.sheetHeight
-                    self.frame = basketTopFrame
-                }, completion: { finished in
-                  //  print("Ragaie doors opened!")
-                })
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+                var basketTopFrame = self.frame
+                basketTopFrame.origin.y -= self.sheetHeight
+                self.frame = basketTopFrame
+            }, completion: { finished in
+                //  print("Ragaie doors opened!")
+            })
             showFlage = true
-            }
+        }
     }
-
-
-
-
-
-
+ 
     func dismissView() {
-       UIView.animate(withDuration: 0.2, delay:0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.2, delay:0, options: .curveEaseOut, animations: {
             var basketTopFrame = self.frame
             basketTopFrame.origin.y += self.sheetHeight
             self.frame = basketTopFrame
         }, completion: { finished in
             self.plurView.removeFromSuperview()
             self.self.removeFromSuperview()
-           // print("view removed !")
-
+            // print("view removed !")
+            
         })
         showFlage = false
     }
-
-    
     
     @objc func selectItem(_ sender: UIButton) -> Void {
         if delegate != nil {
             delegate.DatePicker(self, didSelectDate: datePicker.date)
         }
         dismissView()
-       showFlage =  false
+        showFlage =  false
         if (doneBlock != nil){
             doneBlock(datePicker.date)
         }
@@ -193,7 +172,11 @@ public class DatePicker: UIView ,Picker{
         }
         dismissView()
     }
-
+  
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }
 
 

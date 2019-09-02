@@ -11,7 +11,7 @@ import UIKit
 class CustomPicker: UIView,Picker {
     
     @IBOutlet weak var containeView: UIView!
-
+    
     var selectItem : Int! = 0
     private  var showFlage :Bool! = false
     var ID : String! = "customeSheet"
@@ -61,7 +61,7 @@ class CustomPicker: UIView,Picker {
     
     //MARK : Init SubView
     func initSubviews() {
-
+        
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CustomPicker", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
@@ -82,13 +82,16 @@ class CustomPicker: UIView,Picker {
         plurView.alpha = 1
         
     }
-
+    
     //MARK :  add action of of all View
     func initActionAndDelegete()  {
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PickerList.clickheader(_:)))
         singleTap.numberOfTapsRequired = 1
         plurView.addGestureRecognizer(singleTap)
         NotificationCenter.default.addObserver(self, selector: #selector(PickerList.rotated), name:  UIDevice.orientationDidChangeNotification, object: nil)
+        
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        plurView.addGestureRecognizer(gestureRecognizer)
         
     }
     
@@ -98,6 +101,32 @@ class CustomPicker: UIView,Picker {
             self.dismissView()
             
         }
+    }
+
+    @objc func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
+
+
+        let translation = gestureRecognizer.translation(in: plurView)
+
+        if  gestureRecognizer.state == .changed {
+
+            // note: 'view' is optional and need to be unwrapped
+
+            if (self.frame.minY + translation.y) > ( UIScreen.main.bounds.height - self.frame.height) &&  (self.frame.minY + translation.y) < ( UIScreen.main.bounds.height * 8/9){
+
+                self.center = CGPoint(x: self.center.x , y: self.center.y + translation.y)
+                gestureRecognizer.setTranslation(CGPoint.zero, in: self)
+            }
+        }
+        //dismis view when reach point and user removed his pin
+        if  gestureRecognizer.state == .ended {
+            
+            if (self.frame.minY + translation.y) > ( UIScreen.main.bounds.height * 4/5){
+                
+                self.dismissView()
+            }
+        }
+
     }
     
     /// show view
@@ -115,13 +144,9 @@ class CustomPicker: UIView,Picker {
                 var basketTopFrame = self.frame
                 basketTopFrame.origin.y -= self.sheetHeight
                 self.frame = basketTopFrame
-
             }, completion: { finished in
-               // self.customViewToShow.frame = CGRect.init(x: 0, y: 0, width: self.containeView.frame.width, height: self.containeView.frame.height)
-
                 if let showBlock = self.showBlock {
                     showBlock()
-
                 }
             })
             showFlage = true

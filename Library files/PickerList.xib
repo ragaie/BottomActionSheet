@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hbo-JD-isd">
-                    <rect key="frame" x="0.0" y="15" width="300" height="160"/>
+                    <rect key="frame" x="0.0" y="12" width="300" height="163"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ny-l4-WIw">
                             <rect key="frame" x="229" y="7" width="56" height="25"/>
@@ -44,7 +44,7 @@
                     </constraints>
                 </view>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-kj-8CE">
-                    <rect key="frame" x="0.0" y="40" width="300" height="135"/>
+                    <rect key="frame" x="0.0" y="37" width="300" height="138"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pickerView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vy-Mf-QEW">
@@ -75,7 +75,7 @@
                 <constraint firstAttribute="bottom" secondItem="pvd-kj-8CE" secondAttribute="bottom" id="k6B-5d-eYO"/>
                 <constraint firstItem="pvd-kj-8CE" firstAttribute="leading" secondItem="Hbo-JD-isd" secondAttribute="leading" id="n2h-XH-hRK"/>
                 <constraint firstItem="pvd-kj-8CE" firstAttribute="bottom" secondItem="Hbo-JD-isd" secondAttribute="bottom" id="sjs-EB-QJk"/>
-                <constraint firstItem="Hbo-JD-isd" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" constant="15" id="tnJ-Mp-MUp"/>
+                <constraint firstItem="Hbo-JD-isd" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" constant="12" id="tnJ-Mp-MUp"/>
                 <constraint firstItem="0vy-Mf-QEW" firstAttribute="top" secondItem="f9a-8s-Fyh" secondAttribute="top" id="uHc-qM-fV2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

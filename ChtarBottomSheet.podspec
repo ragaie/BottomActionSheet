@@ -19,7 +19,7 @@ date picker and any data picker ,and any view you can put it in this animateied 
 
   s.source_files = 'Library files/*.swift'
   s.resources = 'Library files/*.xib'
-  s.resource_bundle = {'ChtarBottomSheet' => ['Library files/DatePicker.xib','Library files/PickerList.xib']}
+  s.resource_bundle = {'ChtarBottomSheet' => ['Library files/DatePicker.xib','Library files/PickerList.xib','Library files/CustomPicker.xib']}
 
   
 end
