@@ -1,9 +1,10 @@
 # Sheet Bottom Picker
-Picker form bottom you can find datePicker or any item picker, or you can add view what you want like table view or collectioncView
+Picker form bottom you can find datePicker or any item picker, or you can add view what you want like table view or collectioncView or what ever you want of custom view.
+
 you can used in both way by delegate or block to listen to result selection. 
 
 Also it work with automatic size for landscape and portrait for iphone and ipad
-For custome view you full controll for width and hieght, and it automatic adjust in center of screen.
+For custome view you full controll hieght, and it automatic adjust in center of screen.
 
 ## You can find it in Appetize
 - [Appetize](https://appetize.io/app/ayn2bek9dk9m4xm4pvdgd96yjw)
@@ -87,7 +88,7 @@ import ChtarBottomSheet
         
         or. 
         
-               SheetPicker.init(CustomePickerWithView: view, height: 200  , width: 400, didShow: {       
+               SheetPicker.init(CustomePickerWithView: view, height: 200  , didShow: {       
                
                print("heelo ")
                }) {            
@@ -99,17 +100,11 @@ import ChtarBottomSheet
   ```
   
 ## you should get like this result  for ipad and iphone for both orintation
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image1.png)
+![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/date1.png)
 
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image2.png)
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image3.png)
+![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/picker2.png)
+![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/custom1.png)
 
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image4.png)
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image5.png)
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image6.png)
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image7.png)
-
-![Screenshot](https://github.com/ragaie/BottomActionSheet/blob/master/image8.png)
 
 ## Author
 
