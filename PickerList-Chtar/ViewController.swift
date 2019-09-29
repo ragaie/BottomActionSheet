@@ -53,10 +53,10 @@ class ViewController: UIViewController {
         
         
         
-        SheetPicker.init(datePickerWithBlock: "Done", mode: .dateAndTime, local: .init(identifier: "en")) { (date) in
+        SheetPicker.init(datePickerWithBlock: "Done", mode: .dateAndTime, local: Locale.init(identifier: "en"), maxDate: nil, minDate: nil) { (date) in
+        
             
         }.show()
-        
         //// --------------> >>>> date picker
 //        SheetPicker.init(datePickerWithBlock : "Done" ,mode: .date, local: Locale.init(identifier: "en"), onCompletion: { (date) in
 //                            print(date)

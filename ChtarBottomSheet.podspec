@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
   s.platform = :ios
   s.name             = 'ChtarBottomSheet'
-  s.version          = '0.4'
+  s.version          = '0.7'
   s.summary          = ' like keyBoard animated view in for any picker data and any custom view component for iOS '
  
   s.description      = <<-DESC
@@ -20,6 +20,6 @@ date picker and any data picker ,and any view you can put it in this animateied 
   s.source_files = 'Library files/*.swift'
   s.resources = 'Library files/*.xib'
   s.resource_bundle = {'ChtarBottomSheet' => ['Library files/DatePicker.xib','Library files/PickerList.xib','Library files/CustomPicker.xib']}
-
+  s.swift_versions = "5.0"
   
 end
